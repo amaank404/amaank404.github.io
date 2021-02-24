@@ -1,0 +1,1137 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+<meta name="generator" content="pdoc 0.9.2" />
+<title>denverapi.bdtp API documentation</title>
+<meta name="description" content="Big Data Transfer Protocol
+What does it do …" />
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
+<link rel="stylesheet preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/github.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js" integrity="sha256-Uv3H6lx7dJmRfRvH8TH6kJD1TSK1aFcwgx+mdg3epi8=" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => hljs.initHighlighting())</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>denverapi.bdtp</code></h1>
+</header>
+<section id="section-intro">
+<h1 id="big-data-transfer-protocol">Big Data Transfer Protocol</h1>
+<h2 id="what-does-it-do">What does it do</h2>
+<p>This protocol sends big data on a address (IPv4,port)
+without worrying about pipe errors</p>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">&#34;&#34;&#34;
+#Big Data Transfer Protocol
+##What does it do
+
+This protocol sends big data on a address (IPv4,port)
+without worrying about pipe errors
+&#34;&#34;&#34;
+
+__author__ = &#34;Xcodz&#34;
+__version__ = &#34;2021.2.24&#34;
+
+import abc
+import socket
+import time
+import typing
+
+from . import thread_control
+
+default_buffer_size = 100000
+
+
+class _BaseSender(abc.ABC):
+    @abc.abstractmethod
+    def send(self, c):
+        pass
+
+
+class _BaseReceiver(abc.ABC):
+    @abc.abstractmethod
+    def recv(self, c):
+        pass
+
+
+class DataSenderHost(_BaseSender):
+    &#34;&#34;&#34;
+    ### Data Sender Host
+    it is used for sending data as a host or in other words, server
+
+    to create a new DataSenderHost please use function implementation for it
+    &#34;&#34;&#34;
+    def __init__(self):
+        self.data = b&#34;&#34;
+        self.address: tuple = (&#34;&#34;, 0)
+        self.data_send: int = 0
+        self.buffer_size: int = default_buffer_size
+        self.task = False
+
+    def send(self, connected_socket: socket.socket = None):
+        &#34;&#34;&#34;
+        use this function to initiate the connection and send the data. `connected_socket` can be
+        supplied if you want to send over a already connected socket.
+        &#34;&#34;&#34;
+        if connected_socket is None:
+            s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+            s.bind(self.address)
+            s.listen(5)
+            connection, _ = s.accept()
+        else:
+            connection = connected_socket
+
+        if isinstance(self.data, bytes):
+            for line in range(0, len(self.data), self.buffer_size):
+                lts = self.data[line : line + self.buffer_size]
+                connection.sendall(lts)
+                self.data_send += self.buffer_size
+        elif isinstance(self.data, typing.BinaryIO):
+            while True:
+                line = self.data.read(self.buffer_size)
+                if line == b&#34;&#34;:
+                    break
+                connection.sendall(line)
+                self.data_send += self.buffer_size
+
+        connection.send(b&#34;&#34;)
+        if connected_socket is None:
+            connection.close()
+            s.close()
+        self.task = True
+
+
+class DataSenderPort(_BaseSender):
+    &#34;&#34;&#34;
+    ### Data Sender Port
+    it is used for sending data as a client
+
+    to create a new DataSenderPort please use function implementation for it
+    &#34;&#34;&#34;
+    def __init__(self):
+        self.data: bytes = b&#34;&#34;
+        self.address: tuple = (&#34;&#34;, 0)
+        self.data_send: int = 0
+        self.buffer_size: int = default_buffer_size
+        self.task = False
+
+    def send(self, connected_socket: socket.socket = None):
+        &#34;&#34;&#34;
+        use this function to initiate the connection and send the data. `connected_socket` can be
+        supplied if you want to send over a already connected socket.
+        &#34;&#34;&#34;
+        if connected_socket is None:
+            s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+            s.connect(self.address)
+        else:
+            s = connected_socket
+
+        if isinstance(self.data, bytes):
+            for x in range(0, len(self.data), self.buffer_size):
+                lts = self.data[x : x + self.buffer_size]
+                s.sendall(lts)
+                self.data_send += self.buffer_size
+        elif isinstance(self.data, typing.BinaryIO):
+            while True:
+                line = self.data.read(self.buffer_size)
+                if line == b&#34;&#34;:
+                    break
+                s.sendall(line)
+                self.data_send += self.buffer_size
+
+        s.send(b&#34;&#34;)
+        if connected_socket is None:
+            s.close()
+        self.task = True
+
+
+class DataReceiverHost(_BaseReceiver):
+    &#34;&#34;&#34;
+    ### Data Receiver Host
+    it is used for receiving data as a server or host
+
+    to create a new DataReceiverHost please use function implementation for it
+    &#34;&#34;&#34;
+    def __init__(self):
+        self.address: tuple = (&#34;&#34;, 0)
+        self.data_recv: int = 0
+        self.buffer_size: int = default_buffer_size
+        self.data = b&#34;&#34;
+        self.task = False
+
+    def recv(self, connected_socket: socket.socket = None):
+        &#34;&#34;&#34;
+        use this function to initiate the connection and start receiving the data. `connected_socket` can be
+        supplied if you want to receive over a already connected socket.
+        &#34;&#34;&#34;
+        if connected_socket is None:
+            s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+            s.bind(self.address)
+            s.listen(5)
+            connection, _ = s.accept()
+        else:
+            connection = connected_socket
+        recv_bytes = b&#34;\0&#34;
+
+        while recv_bytes != b&#34;&#34;:
+            recv_bytes = connection.recv(self.buffer_size)
+            self.data += recv_bytes
+            self.data_recv += self.buffer_size
+
+        if connected_socket is None:
+            connection.close()
+            s.close()
+        self.task = True
+
+
+class DataReceiverPort(_BaseReceiver):
+    &#34;&#34;&#34;
+    ### Data Receiver Port
+    it is used for receiving data as a client
+
+    to create a new DataReceiverPort please use function implementation for it
+    &#34;&#34;&#34;
+    def __init__(self):
+        self.address: tuple = (&#34;&#34;, 0)
+        self.data_recv: int = 0
+        self.buffer_size: int = default_buffer_size
+        self.data = b&#34;&#34;
+        self.task = False
+
+    def recv(self, connected_socket: socket.socket = None):
+        &#34;&#34;&#34;
+        use this function to initiate the connection and start receiving the data. `connected_socket` can be
+        supplied if you want to receive over a already connected socket.
+        &#34;&#34;&#34;
+        if connected_socket is None:
+            s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+            s.connect(self.address)
+            connection = s
+        else:
+            connection = connected_socket
+        recv_bytes = b&#34;\0&#34;
+
+        while recv_bytes != b&#34;&#34;:
+            recv_bytes = connection.recv(self.buffer_size)
+            self.data += recv_bytes
+            self.data_recv += self.buffer_size
+
+        if connected_socket is None:
+            connection.close()
+        self.task = True
+
+
+def new_send_data_host(data: bytes, addr: tuple = None, buffer_size=None):
+    &#34;&#34;&#34;
+    Make a new DataSenderHost with provided arguments. It&#39;s better to not supply `addr` if you
+    are going to use the object on existing connection. It is also not recommended to change
+    `buffer_size` because this argument is supposed to be same at both the sender and receiver.
+
+    You can then use the `send` method of the returned object to send the provided data.
+
+    Example:
+
+    ```python
+    from denverapi import bdtp
+    import socket
+
+    # Without existing connection
+    my_sender = bdtp.new_send_data_host(b&#34;Some Data&#34;, (&#34;127.0.0.1&#34;, 7575))
+    my_sender.send()
+
+    # With existing connection
+    my_server = socket.socket()
+    my_server.bind((&#34;127.0.0.1&#34;, 1234))
+    my_server.listen(5)
+
+    my_connection, address = my_server.accept()
+
+    my_sender = bdtp.new_send_data_host(b&#34;Some Data&#34;)
+    my_sender.send(my_connection)
+
+    # With changed buffer
+    my_sender = bdtp.new_send_data_host(b&#34;Some Data&#34;, (&#34;127.0.0.1&#34;, 12345), 3)
+    my_sender.send()
+    ```
+    &#34;&#34;&#34;
+    sender_object = DataSenderHost()
+    sender_object.data = data
+    sender_object.address = addr
+    if buffer_size is not None:
+        sender_object.buffer_size = buffer_size
+    return sender_object
+
+
+def new_send_data_port(data: bytes, addr: tuple, buffer_size=None):
+    &#34;&#34;&#34;
+    Make a new DataSenderHost with provided arguments. It&#39;s better to not supply `addr` if you
+    are going to use the object on existing connection. It is also not recommended to change
+    `buffer_size` because this argument is supposed to be same at both the sender and receiver.
+
+    You can then use the `send` method of the returned object to send the provided data.
+
+    Example:
+
+    ```python
+    from denverapi import bdtp
+    import socket
+
+    # Without existing connection
+    my_sender = bdtp.new_send_data_host(b&#34;Some Data&#34;, (&#34;127.0.0.1&#34;, 7575))
+    my_sender.send()
+
+    # With existing connection
+    my_connection = socket.socket()
+    my_connection.connect((&#34;127.0.0.1&#34;, 1234))
+    my_sender = bdtp.new_send_data_host(b&#34;Some Data&#34;)
+    my_sender.send(my_connection)
+
+    # With changed buffer
+    my_sender = bdtp.new_send_data_host(b&#34;Some Data&#34;, (&#34;127.0.0.1&#34;, 12345), 3)
+    my_sender.send()
+    &#34;&#34;&#34;
+    sender_object = DataSenderPort()
+    sender_object.data = data
+    sender_object.address = addr
+    if buffer_size is not None:
+        sender_object.buffer_size = buffer_size
+    return sender_object
+
+
+def new_receive_data_host(addr: tuple, buffer_size=None):
+    sender_object = DataReceiverHost()
+    sender_object.address = addr
+    if buffer_size is not None:
+        sender_object.buffer_size = buffer_size
+    return sender_object
+
+
+def new_receive_data_port(addr: tuple, buffer_size=None):
+    sender_object = DataReceiverPort()
+    sender_object.address = addr
+    if buffer_size is not None:
+        sender_object.buffer_size = buffer_size
+    return sender_object
+
+
+def attach_speed_logger(data_object):
+    spl = []
+
+    @thread_control.runs_parallel
+    def sps(spl, d: _BaseSender):
+        old = 0
+        new = 0
+        spl.append(d.buffer_size)
+        while not d.task:
+            time.sleep(0.01)
+            new = d.data_send
+            spl.append(new - old)
+            old = new
+
+    @thread_control.runs_parallel
+    def spr(spl, d: _BaseReceiver):
+        old = 0
+        new = 0
+        spl.append(d.buffer_size)
+        while not d.task:
+            time.sleep(0.01)
+            new = d.data_recv
+            spl.append(new - old)
+            old = new
+
+    (spr if isinstance(data_object, _BaseReceiver) else sps)(spl, data_object)
+    return spl
+
+
+def launch(data_object, connected_socket=None):
+    if isinstance(data_object, _BaseSender):
+        data_object.send(connected_socket)
+    else:
+        data_object.recv(connected_socket)
+
+
+def average_speed_log(spl: list):
+    while spl[0] == 0:
+        spl.pop(0)
+    while spl[-1] == 0:
+        spl.pop()
+    return (sum(spl) / len(spl)) * 100
+
+
+def main():
+    print(&#34;Reading Data&#34;)
+    datats = open(input(&#34;File &gt; &#34;), &#34;r+b&#34;).read()
+    print(&#34;Read Data&#34;)
+    print(&#34;Making Classes&#34;)
+    sc = new_send_data_port(datats, (&#34;127.0.0.1&#34;, 4623))
+    rc = new_receive_data_host((&#34;127.0.0.1&#34;, 4623))
+    spl = attach_speed_logger(rc)
+    from threading import Thread
+
+    Thread(target=launch, args=(sc,)).start()
+    rc.recv()
+    print(len(spl))
+    print(
+        f&#34;Data Send:\n\tlen: {len(sc.data)}\nData Received:\n\tlen: {len(rc.data)}\n\tis_equal: {rc.data == sc.data}&#34;
+    )
+    print(f&#34;Average Speed: {average_speed_log(spl)} bytes per second&#34;)
+
+
+if __name__ == &#34;__main__&#34;:
+    main()</code></pre>
+</details>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-functions">Functions</h2>
+<dl>
+<dt id="denverapi.bdtp.attach_speed_logger"><code class="name flex">
+<span>def <span class="ident">attach_speed_logger</span></span>(<span>data_object)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def attach_speed_logger(data_object):
+    spl = []
+
+    @thread_control.runs_parallel
+    def sps(spl, d: _BaseSender):
+        old = 0
+        new = 0
+        spl.append(d.buffer_size)
+        while not d.task:
+            time.sleep(0.01)
+            new = d.data_send
+            spl.append(new - old)
+            old = new
+
+    @thread_control.runs_parallel
+    def spr(spl, d: _BaseReceiver):
+        old = 0
+        new = 0
+        spl.append(d.buffer_size)
+        while not d.task:
+            time.sleep(0.01)
+            new = d.data_recv
+            spl.append(new - old)
+            old = new
+
+    (spr if isinstance(data_object, _BaseReceiver) else sps)(spl, data_object)
+    return spl</code></pre>
+</details>
+</dd>
+<dt id="denverapi.bdtp.average_speed_log"><code class="name flex">
+<span>def <span class="ident">average_speed_log</span></span>(<span>spl: list)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def average_speed_log(spl: list):
+    while spl[0] == 0:
+        spl.pop(0)
+    while spl[-1] == 0:
+        spl.pop()
+    return (sum(spl) / len(spl)) * 100</code></pre>
+</details>
+</dd>
+<dt id="denverapi.bdtp.launch"><code class="name flex">
+<span>def <span class="ident">launch</span></span>(<span>data_object, connected_socket=None)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def launch(data_object, connected_socket=None):
+    if isinstance(data_object, _BaseSender):
+        data_object.send(connected_socket)
+    else:
+        data_object.recv(connected_socket)</code></pre>
+</details>
+</dd>
+<dt id="denverapi.bdtp.main"><code class="name flex">
+<span>def <span class="ident">main</span></span>(<span>)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def main():
+    print(&#34;Reading Data&#34;)
+    datats = open(input(&#34;File &gt; &#34;), &#34;r+b&#34;).read()
+    print(&#34;Read Data&#34;)
+    print(&#34;Making Classes&#34;)
+    sc = new_send_data_port(datats, (&#34;127.0.0.1&#34;, 4623))
+    rc = new_receive_data_host((&#34;127.0.0.1&#34;, 4623))
+    spl = attach_speed_logger(rc)
+    from threading import Thread
+
+    Thread(target=launch, args=(sc,)).start()
+    rc.recv()
+    print(len(spl))
+    print(
+        f&#34;Data Send:\n\tlen: {len(sc.data)}\nData Received:\n\tlen: {len(rc.data)}\n\tis_equal: {rc.data == sc.data}&#34;
+    )
+    print(f&#34;Average Speed: {average_speed_log(spl)} bytes per second&#34;)</code></pre>
+</details>
+</dd>
+<dt id="denverapi.bdtp.new_receive_data_host"><code class="name flex">
+<span>def <span class="ident">new_receive_data_host</span></span>(<span>addr: tuple, buffer_size=None)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def new_receive_data_host(addr: tuple, buffer_size=None):
+    sender_object = DataReceiverHost()
+    sender_object.address = addr
+    if buffer_size is not None:
+        sender_object.buffer_size = buffer_size
+    return sender_object</code></pre>
+</details>
+</dd>
+<dt id="denverapi.bdtp.new_receive_data_port"><code class="name flex">
+<span>def <span class="ident">new_receive_data_port</span></span>(<span>addr: tuple, buffer_size=None)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def new_receive_data_port(addr: tuple, buffer_size=None):
+    sender_object = DataReceiverPort()
+    sender_object.address = addr
+    if buffer_size is not None:
+        sender_object.buffer_size = buffer_size
+    return sender_object</code></pre>
+</details>
+</dd>
+<dt id="denverapi.bdtp.new_send_data_host"><code class="name flex">
+<span>def <span class="ident">new_send_data_host</span></span>(<span>data: bytes, addr: tuple = None, buffer_size=None)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Make a new DataSenderHost with provided arguments. It's better to not supply <code>addr</code> if you
+are going to use the object on existing connection. It is also not recommended to change
+<code>buffer_size</code> because this argument is supposed to be same at both the sender and receiver.</p>
+<p>You can then use the <code>send</code> method of the returned object to send the provided data.</p>
+<p>Example:</p>
+<pre><code class="language-python">from denverapi import bdtp
+import socket
+
+# Without existing connection
+my_sender = bdtp.new_send_data_host(b&quot;Some Data&quot;, (&quot;127.0.0.1&quot;, 7575))
+my_sender.send()
+
+# With existing connection
+my_server = socket.socket()
+my_server.bind((&quot;127.0.0.1&quot;, 1234))
+my_server.listen(5)
+
+my_connection, address = my_server.accept()
+
+my_sender = bdtp.new_send_data_host(b&quot;Some Data&quot;)
+my_sender.send(my_connection)
+
+# With changed buffer
+my_sender = bdtp.new_send_data_host(b&quot;Some Data&quot;, (&quot;127.0.0.1&quot;, 12345), 3)
+my_sender.send()
+</code></pre></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def new_send_data_host(data: bytes, addr: tuple = None, buffer_size=None):
+    &#34;&#34;&#34;
+    Make a new DataSenderHost with provided arguments. It&#39;s better to not supply `addr` if you
+    are going to use the object on existing connection. It is also not recommended to change
+    `buffer_size` because this argument is supposed to be same at both the sender and receiver.
+
+    You can then use the `send` method of the returned object to send the provided data.
+
+    Example:
+
+    ```python
+    from denverapi import bdtp
+    import socket
+
+    # Without existing connection
+    my_sender = bdtp.new_send_data_host(b&#34;Some Data&#34;, (&#34;127.0.0.1&#34;, 7575))
+    my_sender.send()
+
+    # With existing connection
+    my_server = socket.socket()
+    my_server.bind((&#34;127.0.0.1&#34;, 1234))
+    my_server.listen(5)
+
+    my_connection, address = my_server.accept()
+
+    my_sender = bdtp.new_send_data_host(b&#34;Some Data&#34;)
+    my_sender.send(my_connection)
+
+    # With changed buffer
+    my_sender = bdtp.new_send_data_host(b&#34;Some Data&#34;, (&#34;127.0.0.1&#34;, 12345), 3)
+    my_sender.send()
+    ```
+    &#34;&#34;&#34;
+    sender_object = DataSenderHost()
+    sender_object.data = data
+    sender_object.address = addr
+    if buffer_size is not None:
+        sender_object.buffer_size = buffer_size
+    return sender_object</code></pre>
+</details>
+</dd>
+<dt id="denverapi.bdtp.new_send_data_port"><code class="name flex">
+<span>def <span class="ident">new_send_data_port</span></span>(<span>data: bytes, addr: tuple, buffer_size=None)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Make a new DataSenderHost with provided arguments. It's better to not supply <code>addr</code> if you
+are going to use the object on existing connection. It is also not recommended to change
+<code>buffer_size</code> because this argument is supposed to be same at both the sender and receiver.</p>
+<p>You can then use the <code>send</code> method of the returned object to send the provided data.</p>
+<p>Example:</p>
+<p>```python
+from denverapi import bdtp
+import socket</p>
+<h1 id="without-existing-connection">Without existing connection</h1>
+<p>my_sender = bdtp.new_send_data_host(b"Some Data", ("127.0.0.1", 7575))
+my_sender.send()</p>
+<h1 id="with-existing-connection">With existing connection</h1>
+<p>my_connection = socket.socket()
+my_connection.connect(("127.0.0.1", 1234))
+my_sender = bdtp.new_send_data_host(b"Some Data")
+my_sender.send(my_connection)</p>
+<h1 id="with-changed-buffer">With changed buffer</h1>
+<p>my_sender = bdtp.new_send_data_host(b"Some Data", ("127.0.0.1", 12345), 3)
+my_sender.send()</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def new_send_data_port(data: bytes, addr: tuple, buffer_size=None):
+    &#34;&#34;&#34;
+    Make a new DataSenderHost with provided arguments. It&#39;s better to not supply `addr` if you
+    are going to use the object on existing connection. It is also not recommended to change
+    `buffer_size` because this argument is supposed to be same at both the sender and receiver.
+
+    You can then use the `send` method of the returned object to send the provided data.
+
+    Example:
+
+    ```python
+    from denverapi import bdtp
+    import socket
+
+    # Without existing connection
+    my_sender = bdtp.new_send_data_host(b&#34;Some Data&#34;, (&#34;127.0.0.1&#34;, 7575))
+    my_sender.send()
+
+    # With existing connection
+    my_connection = socket.socket()
+    my_connection.connect((&#34;127.0.0.1&#34;, 1234))
+    my_sender = bdtp.new_send_data_host(b&#34;Some Data&#34;)
+    my_sender.send(my_connection)
+
+    # With changed buffer
+    my_sender = bdtp.new_send_data_host(b&#34;Some Data&#34;, (&#34;127.0.0.1&#34;, 12345), 3)
+    my_sender.send()
+    &#34;&#34;&#34;
+    sender_object = DataSenderPort()
+    sender_object.data = data
+    sender_object.address = addr
+    if buffer_size is not None:
+        sender_object.buffer_size = buffer_size
+    return sender_object</code></pre>
+</details>
+</dd>
+</dl>
+</section>
+<section>
+<h2 class="section-title" id="header-classes">Classes</h2>
+<dl>
+<dt id="denverapi.bdtp.DataReceiverHost"><code class="flex name class">
+<span>class <span class="ident">DataReceiverHost</span></span>
+</code></dt>
+<dd>
+<div class="desc"><h3 id="data-receiver-host">Data Receiver Host</h3>
+<p>it is used for receiving data as a server or host</p>
+<p>to create a new DataReceiverHost please use function implementation for it</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class DataReceiverHost(_BaseReceiver):
+    &#34;&#34;&#34;
+    ### Data Receiver Host
+    it is used for receiving data as a server or host
+
+    to create a new DataReceiverHost please use function implementation for it
+    &#34;&#34;&#34;
+    def __init__(self):
+        self.address: tuple = (&#34;&#34;, 0)
+        self.data_recv: int = 0
+        self.buffer_size: int = default_buffer_size
+        self.data = b&#34;&#34;
+        self.task = False
+
+    def recv(self, connected_socket: socket.socket = None):
+        &#34;&#34;&#34;
+        use this function to initiate the connection and start receiving the data. `connected_socket` can be
+        supplied if you want to receive over a already connected socket.
+        &#34;&#34;&#34;
+        if connected_socket is None:
+            s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+            s.bind(self.address)
+            s.listen(5)
+            connection, _ = s.accept()
+        else:
+            connection = connected_socket
+        recv_bytes = b&#34;\0&#34;
+
+        while recv_bytes != b&#34;&#34;:
+            recv_bytes = connection.recv(self.buffer_size)
+            self.data += recv_bytes
+            self.data_recv += self.buffer_size
+
+        if connected_socket is None:
+            connection.close()
+            s.close()
+        self.task = True</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>denverapi.bdtp._BaseReceiver</li>
+<li>abc.ABC</li>
+</ul>
+<h3>Methods</h3>
+<dl>
+<dt id="denverapi.bdtp.DataReceiverHost.recv"><code class="name flex">
+<span>def <span class="ident">recv</span></span>(<span>self, connected_socket: socket.socket = None)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>use this function to initiate the connection and start receiving the data. <code>connected_socket</code> can be
+supplied if you want to receive over a already connected socket.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def recv(self, connected_socket: socket.socket = None):
+    &#34;&#34;&#34;
+    use this function to initiate the connection and start receiving the data. `connected_socket` can be
+    supplied if you want to receive over a already connected socket.
+    &#34;&#34;&#34;
+    if connected_socket is None:
+        s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        s.bind(self.address)
+        s.listen(5)
+        connection, _ = s.accept()
+    else:
+        connection = connected_socket
+    recv_bytes = b&#34;\0&#34;
+
+    while recv_bytes != b&#34;&#34;:
+        recv_bytes = connection.recv(self.buffer_size)
+        self.data += recv_bytes
+        self.data_recv += self.buffer_size
+
+    if connected_socket is None:
+        connection.close()
+        s.close()
+    self.task = True</code></pre>
+</details>
+</dd>
+</dl>
+</dd>
+<dt id="denverapi.bdtp.DataReceiverPort"><code class="flex name class">
+<span>class <span class="ident">DataReceiverPort</span></span>
+</code></dt>
+<dd>
+<div class="desc"><h3 id="data-receiver-port">Data Receiver Port</h3>
+<p>it is used for receiving data as a client</p>
+<p>to create a new DataReceiverPort please use function implementation for it</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class DataReceiverPort(_BaseReceiver):
+    &#34;&#34;&#34;
+    ### Data Receiver Port
+    it is used for receiving data as a client
+
+    to create a new DataReceiverPort please use function implementation for it
+    &#34;&#34;&#34;
+    def __init__(self):
+        self.address: tuple = (&#34;&#34;, 0)
+        self.data_recv: int = 0
+        self.buffer_size: int = default_buffer_size
+        self.data = b&#34;&#34;
+        self.task = False
+
+    def recv(self, connected_socket: socket.socket = None):
+        &#34;&#34;&#34;
+        use this function to initiate the connection and start receiving the data. `connected_socket` can be
+        supplied if you want to receive over a already connected socket.
+        &#34;&#34;&#34;
+        if connected_socket is None:
+            s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+            s.connect(self.address)
+            connection = s
+        else:
+            connection = connected_socket
+        recv_bytes = b&#34;\0&#34;
+
+        while recv_bytes != b&#34;&#34;:
+            recv_bytes = connection.recv(self.buffer_size)
+            self.data += recv_bytes
+            self.data_recv += self.buffer_size
+
+        if connected_socket is None:
+            connection.close()
+        self.task = True</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>denverapi.bdtp._BaseReceiver</li>
+<li>abc.ABC</li>
+</ul>
+<h3>Methods</h3>
+<dl>
+<dt id="denverapi.bdtp.DataReceiverPort.recv"><code class="name flex">
+<span>def <span class="ident">recv</span></span>(<span>self, connected_socket: socket.socket = None)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>use this function to initiate the connection and start receiving the data. <code>connected_socket</code> can be
+supplied if you want to receive over a already connected socket.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def recv(self, connected_socket: socket.socket = None):
+    &#34;&#34;&#34;
+    use this function to initiate the connection and start receiving the data. `connected_socket` can be
+    supplied if you want to receive over a already connected socket.
+    &#34;&#34;&#34;
+    if connected_socket is None:
+        s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        s.connect(self.address)
+        connection = s
+    else:
+        connection = connected_socket
+    recv_bytes = b&#34;\0&#34;
+
+    while recv_bytes != b&#34;&#34;:
+        recv_bytes = connection.recv(self.buffer_size)
+        self.data += recv_bytes
+        self.data_recv += self.buffer_size
+
+    if connected_socket is None:
+        connection.close()
+    self.task = True</code></pre>
+</details>
+</dd>
+</dl>
+</dd>
+<dt id="denverapi.bdtp.DataSenderHost"><code class="flex name class">
+<span>class <span class="ident">DataSenderHost</span></span>
+</code></dt>
+<dd>
+<div class="desc"><h3 id="data-sender-host">Data Sender Host</h3>
+<p>it is used for sending data as a host or in other words, server</p>
+<p>to create a new DataSenderHost please use function implementation for it</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class DataSenderHost(_BaseSender):
+    &#34;&#34;&#34;
+    ### Data Sender Host
+    it is used for sending data as a host or in other words, server
+
+    to create a new DataSenderHost please use function implementation for it
+    &#34;&#34;&#34;
+    def __init__(self):
+        self.data = b&#34;&#34;
+        self.address: tuple = (&#34;&#34;, 0)
+        self.data_send: int = 0
+        self.buffer_size: int = default_buffer_size
+        self.task = False
+
+    def send(self, connected_socket: socket.socket = None):
+        &#34;&#34;&#34;
+        use this function to initiate the connection and send the data. `connected_socket` can be
+        supplied if you want to send over a already connected socket.
+        &#34;&#34;&#34;
+        if connected_socket is None:
+            s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+            s.bind(self.address)
+            s.listen(5)
+            connection, _ = s.accept()
+        else:
+            connection = connected_socket
+
+        if isinstance(self.data, bytes):
+            for line in range(0, len(self.data), self.buffer_size):
+                lts = self.data[line : line + self.buffer_size]
+                connection.sendall(lts)
+                self.data_send += self.buffer_size
+        elif isinstance(self.data, typing.BinaryIO):
+            while True:
+                line = self.data.read(self.buffer_size)
+                if line == b&#34;&#34;:
+                    break
+                connection.sendall(line)
+                self.data_send += self.buffer_size
+
+        connection.send(b&#34;&#34;)
+        if connected_socket is None:
+            connection.close()
+            s.close()
+        self.task = True</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>denverapi.bdtp._BaseSender</li>
+<li>abc.ABC</li>
+</ul>
+<h3>Methods</h3>
+<dl>
+<dt id="denverapi.bdtp.DataSenderHost.send"><code class="name flex">
+<span>def <span class="ident">send</span></span>(<span>self, connected_socket: socket.socket = None)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>use this function to initiate the connection and send the data. <code>connected_socket</code> can be
+supplied if you want to send over a already connected socket.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def send(self, connected_socket: socket.socket = None):
+    &#34;&#34;&#34;
+    use this function to initiate the connection and send the data. `connected_socket` can be
+    supplied if you want to send over a already connected socket.
+    &#34;&#34;&#34;
+    if connected_socket is None:
+        s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        s.bind(self.address)
+        s.listen(5)
+        connection, _ = s.accept()
+    else:
+        connection = connected_socket
+
+    if isinstance(self.data, bytes):
+        for line in range(0, len(self.data), self.buffer_size):
+            lts = self.data[line : line + self.buffer_size]
+            connection.sendall(lts)
+            self.data_send += self.buffer_size
+    elif isinstance(self.data, typing.BinaryIO):
+        while True:
+            line = self.data.read(self.buffer_size)
+            if line == b&#34;&#34;:
+                break
+            connection.sendall(line)
+            self.data_send += self.buffer_size
+
+    connection.send(b&#34;&#34;)
+    if connected_socket is None:
+        connection.close()
+        s.close()
+    self.task = True</code></pre>
+</details>
+</dd>
+</dl>
+</dd>
+<dt id="denverapi.bdtp.DataSenderPort"><code class="flex name class">
+<span>class <span class="ident">DataSenderPort</span></span>
+</code></dt>
+<dd>
+<div class="desc"><h3 id="data-sender-port">Data Sender Port</h3>
+<p>it is used for sending data as a client</p>
+<p>to create a new DataSenderPort please use function implementation for it</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class DataSenderPort(_BaseSender):
+    &#34;&#34;&#34;
+    ### Data Sender Port
+    it is used for sending data as a client
+
+    to create a new DataSenderPort please use function implementation for it
+    &#34;&#34;&#34;
+    def __init__(self):
+        self.data: bytes = b&#34;&#34;
+        self.address: tuple = (&#34;&#34;, 0)
+        self.data_send: int = 0
+        self.buffer_size: int = default_buffer_size
+        self.task = False
+
+    def send(self, connected_socket: socket.socket = None):
+        &#34;&#34;&#34;
+        use this function to initiate the connection and send the data. `connected_socket` can be
+        supplied if you want to send over a already connected socket.
+        &#34;&#34;&#34;
+        if connected_socket is None:
+            s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+            s.connect(self.address)
+        else:
+            s = connected_socket
+
+        if isinstance(self.data, bytes):
+            for x in range(0, len(self.data), self.buffer_size):
+                lts = self.data[x : x + self.buffer_size]
+                s.sendall(lts)
+                self.data_send += self.buffer_size
+        elif isinstance(self.data, typing.BinaryIO):
+            while True:
+                line = self.data.read(self.buffer_size)
+                if line == b&#34;&#34;:
+                    break
+                s.sendall(line)
+                self.data_send += self.buffer_size
+
+        s.send(b&#34;&#34;)
+        if connected_socket is None:
+            s.close()
+        self.task = True</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>denverapi.bdtp._BaseSender</li>
+<li>abc.ABC</li>
+</ul>
+<h3>Methods</h3>
+<dl>
+<dt id="denverapi.bdtp.DataSenderPort.send"><code class="name flex">
+<span>def <span class="ident">send</span></span>(<span>self, connected_socket: socket.socket = None)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>use this function to initiate the connection and send the data. <code>connected_socket</code> can be
+supplied if you want to send over a already connected socket.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def send(self, connected_socket: socket.socket = None):
+    &#34;&#34;&#34;
+    use this function to initiate the connection and send the data. `connected_socket` can be
+    supplied if you want to send over a already connected socket.
+    &#34;&#34;&#34;
+    if connected_socket is None:
+        s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        s.connect(self.address)
+    else:
+        s = connected_socket
+
+    if isinstance(self.data, bytes):
+        for x in range(0, len(self.data), self.buffer_size):
+            lts = self.data[x : x + self.buffer_size]
+            s.sendall(lts)
+            self.data_send += self.buffer_size
+    elif isinstance(self.data, typing.BinaryIO):
+        while True:
+            line = self.data.read(self.buffer_size)
+            if line == b&#34;&#34;:
+                break
+            s.sendall(line)
+            self.data_send += self.buffer_size
+
+    s.send(b&#34;&#34;)
+    if connected_socket is None:
+        s.close()
+    self.task = True</code></pre>
+</details>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+</article>
+<nav id="sidebar">
+<h1>Index</h1>
+<div class="toc">
+<ul>
+<li><a href="#big-data-transfer-protocol">Big Data Transfer Protocol</a><ul>
+<li><a href="#what-does-it-do">What does it do</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="denverapi" href="index.html">denverapi</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-functions">Functions</a></h3>
+<ul class="">
+<li><code><a title="denverapi.bdtp.attach_speed_logger" href="#denverapi.bdtp.attach_speed_logger">attach_speed_logger</a></code></li>
+<li><code><a title="denverapi.bdtp.average_speed_log" href="#denverapi.bdtp.average_speed_log">average_speed_log</a></code></li>
+<li><code><a title="denverapi.bdtp.launch" href="#denverapi.bdtp.launch">launch</a></code></li>
+<li><code><a title="denverapi.bdtp.main" href="#denverapi.bdtp.main">main</a></code></li>
+<li><code><a title="denverapi.bdtp.new_receive_data_host" href="#denverapi.bdtp.new_receive_data_host">new_receive_data_host</a></code></li>
+<li><code><a title="denverapi.bdtp.new_receive_data_port" href="#denverapi.bdtp.new_receive_data_port">new_receive_data_port</a></code></li>
+<li><code><a title="denverapi.bdtp.new_send_data_host" href="#denverapi.bdtp.new_send_data_host">new_send_data_host</a></code></li>
+<li><code><a title="denverapi.bdtp.new_send_data_port" href="#denverapi.bdtp.new_send_data_port">new_send_data_port</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="denverapi.bdtp.DataReceiverHost" href="#denverapi.bdtp.DataReceiverHost">DataReceiverHost</a></code></h4>
+<ul class="">
+<li><code><a title="denverapi.bdtp.DataReceiverHost.recv" href="#denverapi.bdtp.DataReceiverHost.recv">recv</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="denverapi.bdtp.DataReceiverPort" href="#denverapi.bdtp.DataReceiverPort">DataReceiverPort</a></code></h4>
+<ul class="">
+<li><code><a title="denverapi.bdtp.DataReceiverPort.recv" href="#denverapi.bdtp.DataReceiverPort.recv">recv</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="denverapi.bdtp.DataSenderHost" href="#denverapi.bdtp.DataSenderHost">DataSenderHost</a></code></h4>
+<ul class="">
+<li><code><a title="denverapi.bdtp.DataSenderHost.send" href="#denverapi.bdtp.DataSenderHost.send">send</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="denverapi.bdtp.DataSenderPort" href="#denverapi.bdtp.DataSenderPort">DataSenderPort</a></code></h4>
+<ul class="">
+<li><code><a title="denverapi.bdtp.DataSenderPort.send" href="#denverapi.bdtp.DataSenderPort.send">send</a></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc"><cite>pdoc</cite> 0.9.2</a>.</p>
+</footer>
+</body>
+</html>
