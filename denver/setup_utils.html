@@ -351,19 +351,23 @@ into the setup.</p>
 <span>def <span class="ident">concatenate_dictionaries</span></span>(<span>d1: dict, d2: dict, *d)</span>
 </code></dt>
 <dd>
-<div class="desc"></div>
-</dd>
-<dt id="denverapi.setup_utils.exclude_files"><code class="name flex">
-<span>def <span class="ident">exclude_files</span></span>(<span>filespath: list, exts: list)</span>
-</code></dt>
-<dd>
-<div class="desc"></div>
+<div class="desc"><p>Concatenate two or multiple dictionaries. Can be used with multiple <code><a title="denverapi.setup_utils.find_package_data" href="#denverapi.setup_utils.find_package_data">find_package_data()</a></code> return values.</p></div>
 </dd>
 <dt id="denverapi.setup_utils.find_package_data"><code class="name flex">
 <span>def <span class="ident">find_package_data</span></span>(<span>package: str, package_name=None)</span>
 </code></dt>
 <dd>
-<div class="desc"></div>
+<div class="desc"><p>Find data inside a package. can be used for <code>setuptools.setup</code></p>
+<p>Example:</p>
+<pre><code class="language-python">from setuptools import setup
+from denverapi import setup_utils
+
+setup(
+    ...
+    package_data=setup_utils.find_package_data(&quot;my_package&quot;),
+    ...
+)
+</code></pre></div>
 </dd>
 </dl>
 </section>
@@ -384,7 +388,6 @@ into the setup.</p>
 <li><h3><a href="#header-functions">Functions</a></h3>
 <ul class="">
 <li><code><a title="denverapi.setup_utils.concatenate_dictionaries" href="#denverapi.setup_utils.concatenate_dictionaries">concatenate_dictionaries</a></code></li>
-<li><code><a title="denverapi.setup_utils.exclude_files" href="#denverapi.setup_utils.exclude_files">exclude_files</a></code></li>
 <li><code><a title="denverapi.setup_utils.find_package_data" href="#denverapi.setup_utils.find_package_data">find_package_data</a></code></li>
 </ul>
 </li>
