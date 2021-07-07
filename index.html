@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Xcodz-Dot Website</title>
+    <style type="text/css">
+    body, html {
+        background-color: #eee;
+        color: #333;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    .parent {
+        align-items: center;
+        display: flex;
+        justify-content: center;
+        width: 80%;
+        flex-direction: column;
+    }
+
+    .bubble {
+        background-color: black;
+        color: white;
+        border-radius: 25px;
+        padding: 10px;
+        width: 100%;
+        margin: 10px;
+        overflow: hidden;
+    }
+
+    a {
+        color: white;
+        text-decoration: underline;
+        font-weight: bold;
+        transition: all 0.2s ease;
+    }
+
+    a:hover {
+        font-size: 20px;
+    }
+    </style>
+</head>
+<body>
+    <div class="parent" style="width: 100%;">
+        <div class="parent">
+            <h1> Xcodz-Dot's Website </h1>
+            <div class="bubble" style="background-color: rgb(0, 201, 0);" id="contents">
+                <h2> Contents: </h2>
+                <ul>
+                    <li> <a href="#about"> About Me </a> </li>
+                    <li> <a href="#projects"> My Projects </a></li>
+                </ul>
+            </div>
+            <div class="bubble", style="background-color: orange;" id="about">
+                <h2> About Me: </h2>
+                <p>
+                    I am a self taught developer, it is just amazing to see
+                    how logic is applied in programming. And I love programming and so
+                    for most of the time that I am free I do programming. I started
+                    with different languages on YouTube but it was hard to learn from
+                    YouTube so I went on to try a book named <b>"Head First Python"</b>.
+                    It gave me a strong base at basic Python then its all thanks to
+                    Google that I gradually learned by just searching things.
+                    
+                    Stackoverflow is also one of my favorite platforms to fix things
+                    and get how to guides although its against their guidelines.
+                    I am relatively new to HTML and CSS but thanks again to Google
+                    Searches that I learnt it in a search and understand way.
+
+                    I like Linux and Open Source. And believe it or not I like this
+                    logo simplification trend. It just makes the logos feel more
+                    modernized to me (Yes, I hate those 3d buttons used in old programs!)
+                </p>
+            </div>
+            <div class="bubble" style="background-color: dodgerblue;" id="projects">
+                <h2> My Projects </h2>
+                <p>
+                    I have all my projects listed on <a href="https://github.com/xcodz-dot">my Github Profile</a>
+                    out of which some of them are pinned which are my favorites and the
+                    ones I am currently working on
+                </p>
+                <div class="bubble" style="background-color: red;">
+                    TODO
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
