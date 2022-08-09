@@ -1,0 +1,19 @@
+:root {
+  --c1: navy;
+  --c2: gray;
+  --c3: black;
+  --c4: white;
+  --c5: #dddddd;
+  --shadowdrop: black;
+}
+
+/* @media screen and (prefers-color-scheme: dark) {
+  :root {
+    --c1: black;
+    --c2: #444;
+    --c3: black;
+    --c4: white;
+    --c5: #dddddd;
+    --shadowdrop: #151515;
+  }
+} */

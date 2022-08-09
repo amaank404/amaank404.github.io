@@ -1,0 +1,199 @@
+@import "./web95-fonts.css";
+@import "./web95-colors.css";
+
+* {
+  padding: 0;
+  margin: 0;
+  font-family: RobotoMono, monospace;
+  color: var(--c4);
+  font-size: 1rem;
+}
+
+body {
+  background-color: var(--c1);
+}
+
+.button {
+  background-color: var(--c2);
+  display: inline-block;
+  padding: 0.5em 1ex;
+}
+
+.button:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.button:active {
+  background-color: var(--c3);
+}
+
+.navbar {
+  background-color: var(--c2);
+  display: flex;
+  box-sizing: border-box;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+}
+
+input::placeholder {
+  color: var(--c4);
+  font-size: 1rem;
+}
+
+input {
+  background-color: var(--c2);
+  color: var(--c4);
+  border: 0;
+  text-decoration: none;
+  outline: none;
+  font-size: 1rem;
+  padding: 0 1ex;
+}
+
+input[type=text]::-ms-clear {  display: none; width : 0; height: 0; }
+input[type=text]::-ms-reveal {  display: none; width : 0; height: 0; }
+input[type="search"]::-webkit-search-decoration,
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-results-button,
+input[type="search"]::-webkit-search-results-decoration { display: none; }
+
+input:focus {
+  background-color: var(--c3);
+}
+
+input:focus::placeholder {
+  color: var(--c2)
+}
+
+a {
+  color: var(--c5)
+}
+
+a.navbar-button {
+  color: var(--c4)
+}
+
+a:hover, .button:hover, input:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+a.navbar-button:active {
+  background-color: var(--c3);
+}
+
+.navbar-button {
+  color: var(--c4);
+  text-decoration: none;
+  padding: 0 1em;
+}
+
+p {
+  padding: 1em 1ex 0;
+}
+
+h1::before, h2::before, h3::before, h4::before, h5::before, h6::before {
+  content: "~ ";
+}
+h1::after, h2::after, h3::after, h4::after, h5::after, h6::after {
+  content: " ~";
+}
+
+h1, h2, h3, h4, h5, h6 {
+  padding: 1em 0 0;
+}
+
+h1, h2 {
+  padding: 0.5em 0 0;
+  font-size: 2em;
+}
+
+h1 {
+  text-decoration: underline;
+  margin: 0 1ex;
+}
+
+h2 {
+  text-decoration: dashed underline;
+  margin: 0 3ex;
+}
+
+h3 {
+  text-decoration: underline;
+  margin: 0 7ex;
+}
+
+h4 {
+  font-weight: normal;
+  margin: 0 7ex;
+  color: var(--c5)
+}
+
+h5 {
+  margin: 0.125em 14ex;
+  font-size: 0.75em;
+  font-weight: bold;
+}
+
+h6 {
+  margin: 0.125em 14ex;
+  font-size: 0.75em;
+  font-weight: normal;
+}
+
+pre {
+  background-color: var(--c3);
+  color: var(--c4);
+  display: block;
+  margin: 1em 2ex 0;
+  padding: 0.5em 2ex;
+}
+
+code {
+  background-color: var(--c2);
+  color: var(--c4);
+  padding: 0 1ex;
+}
+
+ul {
+  list-style-type: "* ";
+  list-style-position: inside;
+  margin: 0 2ex;
+}
+
+ol {
+  list-style-type: "1";
+  list-style-position: inside;
+  margin: 0 2ex;
+}
+
+.content-container {
+  margin-top: 1em;
+  margin-left: 2ex;
+  border-top: 1em solid var(--c2);
+  border-bottom: 1em solid var(--c2);
+  border-left: 2ex solid var(--c2);
+  border-right: 2ex solid var(--c2);
+  box-shadow: 2ex 1em var(--shadowdrop);
+  height: 50vh;
+}
+
+@media screen and (orientation: portrait) {
+  /* Portrait Mode (Mobiles) */
+}
+
+@media print {
+  :root {
+    --c1: white;
+    --c2: white;
+    --c3: black;
+    --c4: black;
+    --c5: #222;
+  }
+
+  .navbar {
+    display: none
+  }
+}
