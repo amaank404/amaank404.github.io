@@ -1,0 +1,96 @@
+@font-face {
+    font-family: pouttu;
+    src: url(POUTTU__.TTF);
+}
+
+.circle {
+    border-radius: 50%;
+}
+
+#clicker {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 30vw;
+    height: 30vw;
+    background-color: #FD841F;
+    margin-top: 10vh;
+    box-shadow: 0 0 20px 5px #FD841F;
+    transition: transform 0.1s ease;
+}
+
+#clicker:hover {
+    transform: translate(-50%, -50%) scale(1.1, 1.1);
+}
+
+#clicker:active {
+    transform: translate(-50%, -50%) scale(1, 1);
+    transition-duration: 0.01;
+    transition-timing-function: ease-out;
+}
+
+.center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.centerh {
+    position: absolute;
+    left: 50%;
+    transform: translate(0, -50%);
+}
+
+.centerv {
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, 0);
+}
+
+body {
+    background-color: #CD104D;
+    color: #FD841F;
+    font-family: pouttu;
+    font-size: 10vh;
+    -webkit-user-select: none; /* Safari */        
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* IE10+/Edge */
+    user-select: none; /* Standard */
+}
+
+.textcenter {
+    text-align: center;
+}
+
+.neonText {
+    color: #fff;
+    animation: glow 1s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+    from {
+        text-shadow:
+        0 0 3px #fff,
+        0 0 5px #fff,
+        0 0 10px #fff,
+        0 0 21px #FD841F,
+        0 0 41px #FD841F,
+        0 0 46px #FD841F,
+        0 0 51px #FD841F,
+        0 0 75px #FD841F;
+    }
+
+    to {
+        text-shadow:
+        0 0 1.5px #fff,
+        0 0 2.5px #fff,
+        0 0 5px #fff,
+        0 0 10px #FD841F,
+        0 0 20px #FD841F,
+        0 0 23px #FD841F,
+        0 0 25px #FD841F,
+        0 0 32px #FD841F;
+    }
+}
