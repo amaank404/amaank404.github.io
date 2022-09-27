@@ -58,6 +58,8 @@ body {
     -moz-user-select: none; /* Firefox */
     -ms-user-select: none; /* IE10+/Edge */
     user-select: none; /* Standard */
+    margin: 0;
+    padding: 0;
 }
 
 .textcenter {
@@ -93,4 +95,49 @@ body {
         0 0 25px #FD841F,
         0 0 32px #FD841F;
     }
+}
+
+.neonTextSmall {
+    color: #fff;
+    font-size: 0.6em;
+    animation: glowsmall 1s ease-in-out infinite alternate;
+}
+
+@keyframes glowsmall {
+    from {
+        text-shadow:
+        0 0 1.5px #fff,
+        0 0 2.5px #fff,
+        0 0 5px #fff,
+        0 0 10px #FD841F,
+        0 0 20px #FD841F,
+        0 0 23px #FD841F,
+        0 0 25px #FD841F,
+        0 0 32px #FD841F;
+    }
+
+    to {
+        text-shadow:
+        0 0 0.7px #fff,
+        0 0 1.2px #fff,
+        0 0 2.5px #fff,
+        0 0 5px #FD841F,
+        0 0 10px #FD841F,
+        0 0 11.5px #FD841F,
+        0 0 12.5px #FD841F,
+        0 0 16px #FD841F;
+    }
+}
+
+#wpm {
+    position: absolute;
+    width: 100vw;
+    top: 0.1em;
+    transition: opacity 1s ease;
+}
+
+#clickertext {
+    position: absolute;
+    width: 100vw;
+    top: 0.5em;
 }
