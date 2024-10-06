@@ -5,121 +5,232 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AmaanK</title>
-    <link rel="stylesheet" href="/static/web95/web95.css">
+    <link rel="stylesheet" href="/static/styles.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap');
+
+        body {
+            padding: 0;
+            margin: 0;
+            background-color: #111;
+            color: white;
+            font-family: Raleway, Arial, Helvetica, sans-serif;
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        .blur {
+            background-color: rgba(0, 0, 0, 50%);
+            backdrop-filter: blur(7px);
+        }
+
+        .navbar-postpad {
+            height: 9em;
+        }
+
+        .navbar {
+            z-index: 1000;
+            width: calc(100% - 4em);
+            display: flex;
+            margin: 2em;
+            position: fixed;
+            top: 0;
+            border-radius: 1em;
+            overflow: hidden;
+            flex-wrap: wrap;
+            max-width: 600px;
+            user-select: none;
+            align-content: center;
+        }
+
+        .navbar-borders > *{
+            padding-top: 1.5em !important;
+            padding-bottom: 1.5em !important;
+        }
+
+        .navbar-button {
+            flex: auto;
+            padding: 1em;
+            color: white;
+            text-decoration: none;
+            text-align: center;
+            transition: all 0.1s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .navbar-button:hover {
+            background-color: white;
+            color: black;
+        }
+
+        .navbar-button:active {
+            background-color: black;
+            color: white;
+        }
+
         .footercpright {
             width: 100%;
-            background-color: var(--c2);
-            margin-top: 1em;
             text-align: center;
+            position: fixed;
+            bottom: 0;
+            padding: 0.5em 0;
+            z-index: 1000;
+        }
+
+        .content-centric {
+            padding: 2em 2em;
+            max-width: 900px;
+        }
+
+        .title {
+            width: calc(100% - 4rem);
+            font-size: 5em;
+            padding: 0 2rem 4rem;
+            max-width: 900px;
+        }
+
+        .subtext {
+            font-size: 1.7rem;
+            text-overflow: ellipsis;
+            width: 100%;
+            overflow: hidden;
+        }
+
+        .title-background {
+            width: 100%;
+            background: black;
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        .playfair {
+            font-family: 'Playfair Display';
+        }
+
+        .monospace {
+            font-family: 'IBM Plex Mono', monospace;
+            font-weight: 100;
+        }
+
+        .font-thin { font-weight: 100; }
+
+        .icon {
+            -webkit-mask-size: contain;
+            mask-size: contain;
+            -webkit-mask-image: var(--icon);
+            mask-image: var(--icon);
+            background-color: white;
+            width: 1em;
+            height: 1em;
+            margin-right: 0.5em;
+        }
+        .navbar-button:hover > .icon {
+            background-color: black;
+        }
+
+        .scroll-up-button {
+            position: fixed;
+            right: 1em;
+            bottom: 2em;
+            padding: 0.5rem;
+            font-size: 3em;
+            border-radius: 100%;
+            z-index: 1000;
+            opacity: 1;
+            transition: opacity 0.2s ease;
+            user-select: none;
+            cursor: pointer;
+            transition: all 0.1 ease;
+        }
+
+        .scroll-up-button:hover {
+            background-color: white;
+            color: black;
+        }
+
+        .hidden {
+            opacity: 0;
+        }
+
+        /* For mobile screens */
+        @media screen and (max-width: 600px) {
+            .navbar {
+                margin: 0;
+                width: 100%;
+                max-width: unset;
+                border-radius: 0;
+            }
+
+            .navbar-button {
+                padding: 1em 0.2em !important;
+            }
+        }
+
+        /* For huge screens */
+        @media screen and (min-width: 1200px) {
+            .title {
+                font-size: 9em;
+                width: max-content;
+                max-width: unset;
+            }
+            .subtext{
+                font-size: 2rem;
+            }
+        }
+    </style>
+    <style>
+        .material-symbols-outlined {
+          font-variation-settings:
+          'FILL' 0,
+          'wght' 400,
+          'GRAD' 0,
+          'opsz' 24
         }
     </style>
     <script defer src="static/main.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 </head>
 <body>
-    <div id="maincontainer" style="display:none;">
-        <div class="navbar">
-            <a class="navbar-button" href="#about"> About Me </a>
-            <a class="navbar-button" href="#projects"> Projects </a>
-            <a class="navbar-button" href="#proglangs"> Programming Languages </a>
-            <a class="navbar-button" href="clicker"> Fancy Clicker </a>
+        <div class="navbar blur">
+            <a class="navbar-button" href="https://bento.me/amaank404">
+                <div style="--icon: url(static/images/bento.svg)" class="icon"> </div>
+                Bento
+            </a>
+            <a class="navbar-button" href="#projects">
+                <div style="--icon: url(static/images/github.svg)" class="icon"> </div>
+                Github
+            </a>
+            <a class="navbar-button" href="clicker"> 
+                <div style="--icon: url(static/images/click.svg)" class="icon"> </div>
+                Fancy Clicker 
+            </a>
         </div>
 
-        <h1 style="font-size: 4em;">Warning: Severly outdated, please view <a style="color:green;" href="https://github.com/amaank404">Github Profile</a> instead</h1>
-        
-        <h1> Amaan's Profile </h1>
-        <h2 id="about"> About Me: </h2>
-        <p>
-            I am a self taught developer, it is just amazing to see
-            how logic is applied in programming. And I love programming and so
-            for most of the time that I am free I do programming. I started
-            with different languages on YouTube but it was hard to learn from
-            YouTube so I went on to try a book named <b>"Head First Python"</b>.
-            It gave me a strong base at basic Python then its all thanks to
-            Google that I gradually learned by just searching things.
-            
-            Stackoverflow is also one of my favorite platforms to fix things
-            and get how to guides although its against their guidelines.
-            I am relatively new to HTML and CSS but thanks again to Google
-            Searches that I learnt it in a search and understand way.
-
-            I like Linux and Open Source. And believe it or not I like this
-            logo simplification trend. It just makes the logos feel more
-            modernized to me (Yes, I hate those 3d buttons used in old programs!)
-        </p>
-        <h2 id="projects"> My Projects </h2>
-        <p>
-            I have all my projects listed on <a href="https://github.com/amaank404">my Github Profile</a>
-            out of which some of them are pinned which are my favorites and the
-            ones I am currently working on are
-
-            <ul>
-                <li><a href="https://github.com/amaank404/NimNN">NimNN</a> - Neural Networks in nim</li>
-                <li><a href="https://github.com/amaank404/NimNN">Web95</a> - An old retro theme for personal websites (including this one)</li>
-            </ul>
-        </p>
-
-        <h3> NimNN </h3>
-        <p>
-            I wrote a genetic neural network algorithm from scratch in Nim. And
-            I have to say that it's fast. Although this is also true that the
-            algorithm used in it is probabbly one of the most inefficient ones.
-            Below is a demonstration video for the same.
-        </p>
-        <video class="content-container" controls src="/static/videos/NNsim demonstration.mp4"></video>
-        <p>
-            I do plan to improve its algorithm over time that it becomes better at
-            performance and also better at training. Currently the training algorithm
-            is really weak and works on the basis of random genome changes instead
-            of progressive genome changes. Probabbly I would like to adapt more towards
-            NEAT algorithm.
-        </p>
-
-        <h2 id="proglangs"> My Languages </h2>
-        <p>
-            I like learning new programming languages and I beleive that I 
-            am good at memory structures. Beleive it or not, I do know how
-            pointers work (although I am a Python dev). I can fluently write
-            in following languages :-
-            <ul>
-                <li>Python</li>
-                <li>HTML</li>
-                <li>CSS</li>
-            </ul>
-        </p>
-        <p>
-            And other languages that I am good enough at are :-
-            <ul>
-                <li>Rust</li>
-                <li>Nim</li>
-            </ul>
-        </p>
-        <p>
-            Nim is probabbly not something you've heard of before but its
-            probabbly my favorite of all languages. It offers a lot of ease
-            of life programming features. Although not quite popular amongst
-            the market, I still would like to use nim for my personal
-            projects.
-        </p>
-        <h2>This Page</h2>
-        <p> 
-            This page is interactive, If you would like to see the animation
-            that was presented on first loading this website. Please click
-            the button below if you wanna see it again.
-        </p>
-        <div onclick='eraseCookie("displaywelcome");location.reload()' class="button" style="margin-left:2ex;margin-top:1em;"> Show Welcome Animation </div>
-        <div class="footercpright"> Copyright (c) 2022 Amaan Ahmad Khan</div>
-        <script defer src="/static/web95/web95.js"></script>
-    </div>
-    <div id="loadinganim">
-        <div class="content-container" style="width: calc(100% - 10ex);word-break:break-all;background-color: var(--c1);" id="terminal">
-            AmaanK404(R) Web DOS<br/>
-            Copyright(C) Amaan Ahmad Khan 2022.<br/>
-            <br/>
-            C:\>
+    <div class="title-background">
+        <div class="navbar-postpad"></div>
+        <div class="title">
+            <span class="playfair">
+                Amaan
+            </span>
+            <span class="font-thin">
+                Khan
+            </span>
+            <br>
+            <div class="monospace subtext">C:\Users\Amaan\index.html</div>
         </div>
     </div>
-    <div id="uncoverer" style="display:none;height:100%;width:100%;background-color:var(--c1);position:fixed;bottom:0;z-index: 1001;"></div>
-    <div id="divforvalcheck" style="height:0;width:0;outline:none;border:none;padding:none;margin:none;box-sizing:content-box;"></div>
+
+    <div class="content-centric" style="height: 10000px;">
+        <div class="material-symbols-outlined scroll-up-button blur hidden"> keyboard_arrow_up </div>
+    </div>
+
+    <div class="footercpright blur"> Copyright (c) 2024 Amaan Ahmad Khan</div>
 </body>
 </html>
