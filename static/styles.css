@@ -1,0 +1,346 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap');
+
+/* Colors */
+body {
+    --background: #111;
+    --background-em: black;
+    --text: white;
+    --scroll-thumb: #333;
+    --scroll-thumb-hover: #555;
+    --blur-color: rgba(0, 0, 0, 50%);
+}
+
+.material-symbols-outlined {
+    font-variation-settings:
+    'FILL' 0,
+    'wght' 400,
+    'GRAD' 0,
+    'opsz' 24
+  }
+
+body {
+    padding: 0;
+    margin: 0;
+    background-color: var(--background);
+    color: var(--text);
+    font-family: Raleway, Arial, Helvetica, sans-serif;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+/* width */
+::-webkit-scrollbar {
+    width: 6px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: var(--background);
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: var(--scroll-thumb);
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: var(--scroll-thumb-hover);
+}
+
+.blur {
+    background-color: var(--blur-color);
+    backdrop-filter: blur(7px);
+}
+
+.navbar-postpad {
+    height: 9em;
+}
+
+.navbar {
+    z-index: 1000;
+    width: calc(100% - 4em);
+    display: flex;
+    margin: 2em;
+    position: fixed;
+    top: 0;
+    border-radius: 1em;
+    overflow: hidden;
+    flex-wrap: wrap;
+    max-width: 600px;
+    user-select: none;
+    align-content: center;
+}
+
+.navbar-borders > *{
+    padding-top: 1.5em !important;
+    padding-bottom: 1.5em !important;
+}
+
+.navbar-button {
+    flex: auto;
+    padding: 1em;
+    color: var(--text);
+    text-decoration: none;
+    text-align: center;
+    transition: all 0.1s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.navbar-button:hover {
+    background-color: var(--text);
+    color: var(--background-em);
+}
+
+.navbar-button:active {
+    background-color: var(--background-em);
+    color: var(--text);
+}
+
+.footercpright {
+    width: 100%;
+    text-align: center;
+    padding: 0.5em 0;
+    margin-top: 8em;
+}
+
+.content-centric {
+    width: calc(100% - 4em);
+    padding: 0em 2em;
+    max-width: 900px;
+}
+
+.title {
+    width: calc(100% - 4rem);
+    font-size: 5em;
+    padding: 0 2rem 4rem;
+    max-width: 900px;
+}
+
+.subtext {
+    font-size: 1.7rem;
+    text-overflow: ellipsis;
+    width: 100%;
+    overflow: hidden;
+}
+
+.title-background {
+    width: 100%;
+    min-height: min-content;
+    background: var(--background-em);
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.playfair {
+    font-family: 'Playfair Display';
+}
+
+.handwritten {
+    font-family: "Indie Flower", cursive;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.monospace {
+    font-family: 'IBM Plex Mono', monospace;
+    font-weight: 100;
+}
+
+.font-thin { font-weight: 100; }
+.font-small {font-size: 0.5rem;}
+.huge-title {
+    font-size: 3.5em;
+    float: left;
+    margin-right: 0.2em;
+    line-height: 0.85;
+}
+
+.icon {
+    -webkit-mask-size: contain;
+    mask-size: contain;
+    -webkit-mask-image: var(--icon);
+    mask-image: var(--icon);
+    background-color: var(--text);
+    width: 1em;
+    height: 1em;
+    margin-right: 0.5em;
+}
+.navbar-button:hover > .icon {
+    background-color: var(--background-em);
+}
+.navbar-button:active > .icon {
+    background-color: var(--text);
+}
+
+.scroll-up-button {
+    position: fixed;
+    right: 1em;
+    bottom: 2em;
+    padding: 1rem;
+    font-size: 2em !important;
+    border-radius: 100%;
+    z-index: 1000;
+    opacity: 1;
+    transition-property: opacity, background-color, color;
+    transition-duration: 0.2s;
+    transition-timing-function: ease;
+    user-select: none;
+    cursor: pointer;
+}
+
+.scroll-up-button:hover {
+    background-color: var(--text);
+    color: var(--background-em);
+}
+
+.hidden {
+    opacity: 0;
+}
+
+.pic-img {
+    width: 100%;
+}
+
+.field-specifier {
+    display: flex;
+    justify-content: space-evenly;
+    font-size: calc(100vw * 0.04);
+    margin: 0.5em 0;
+    align-content: center;
+    text-align: center;
+}
+
+.field-specifier > span {
+    text-wrap: nowrap;
+}
+
+img {
+    filter: grayscale(100%);
+}
+
+.grid-container-1 {
+    display: grid;
+    row-gap: 0.2em;
+    column-gap: 0.5em;
+    grid-template-columns: repeat(auto-fill, minmax(min(300px, 100%), 1fr));
+    grid-template-rows: auto;
+}
+
+.icon-header {
+    width: 100%;
+    justify-content: center;
+    text-align: center;
+    font-size: 4em;
+}
+
+.embed-img {
+    width: 100%;
+    filter: brightness(200%) contrast(114%) grayscale(100%);
+}
+
+.show-portrait-flex {
+    display: none;
+}
+
+.text-content {
+    font-size: 1.3em;
+    line-height: 1.4;
+}
+
+p {
+    margin-bottom: 1.5em;
+    text-align: justify;
+}
+
+.hid {
+    transition: opacity 0.5s ease;
+    opacity: 0;
+}
+
+.sho {
+    opacity: 1;
+}
+
+/* For mobile screens */
+@media screen and (max-width: 600px) {
+    .navbar {
+        margin: 0;
+        width: 100%;
+        max-width: unset;
+        border-radius: 0;
+    }
+
+    .pic-img {
+        object-fit: cover;
+        object-position: center top;
+        height: 70vh;
+    }
+
+    .navbar-button {
+        padding: 1em 0.2em !important;
+    }
+
+    .field-specifier > span {
+        text-align: center;
+    }
+
+    .hide-portrait {
+        display: none !important;
+    }
+
+    .show-portrait-flex {
+        display: flex;
+    }
+
+    .field-specifier {
+        flex-flow: column;
+        font-size: calc(250vw * 0.04);
+    }
+
+    #field-specifier-changing {
+        height: calc(250vw * 0.04);
+        margin-bottom: 1em;
+    }
+}
+
+/* text justify or not */
+@media screen and (max-width: 670px) {
+    p {
+        text-align: left;
+    }
+}
+
+/* Max widht 900px is set on cotent-centric */
+@media screen and (min-width: 900px){
+    .field-specifier {
+        font-size: calc(900px * 0.04);
+    }
+}
+
+/* For huge screens */
+@media screen and (min-width: 1200px) {
+    .title {
+        font-size: 9em;
+        width: max-content;
+        max-width: unset;
+    }
+    .subtext{
+        font-size: 2rem;
+    }
+    .pic-img {
+        height: 1000px;
+        object-fit: cover;
+        object-position: left top;
+    }
+    .content-centric {
+        font-size: 1.5rem;
+    }
+}

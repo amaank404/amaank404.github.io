@@ -11,309 +11,10 @@
     <link rel="stylesheet" href="/static/styles.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
-        @import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
-        @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap');
-        @import url('https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap');
-
-        /* width */
-        ::-webkit-scrollbar {
-            width: 6px;
-        }
-
-        /* Track */
-        ::-webkit-scrollbar-track {
-            background: black;
-        }
-
-        /* Handle */
-        ::-webkit-scrollbar-thumb {
-            background: #333;
-        }
-
-        /* Handle on hover */
-        ::-webkit-scrollbar-thumb:hover {
-            background: #555;
-        }
-
-        body {
-            padding: 0;
-            margin: 0;
-            background-color: #111;
-            color: white;
-            font-family: Raleway, Arial, Helvetica, sans-serif;
-            display: flex;
-            align-items: center;
-            flex-direction: column;
-        }
-
-        .blur {
-            background-color: rgba(0, 0, 0, 50%);
-            backdrop-filter: blur(7px);
-        }
-
-        .navbar-postpad {
-            height: 9em;
-        }
-
-        .navbar {
-            z-index: 1000;
-            width: calc(100% - 4em);
-            display: flex;
-            margin: 2em;
-            position: fixed;
-            top: 0;
-            border-radius: 1em;
-            overflow: hidden;
-            flex-wrap: wrap;
-            max-width: 600px;
-            user-select: none;
-            align-content: center;
-        }
-
-        .navbar-borders > *{
-            padding-top: 1.5em !important;
-            padding-bottom: 1.5em !important;
-        }
-
-        .navbar-button {
-            flex: auto;
-            padding: 1em;
-            color: white;
-            text-decoration: none;
-            text-align: center;
-            transition: all 0.1s ease;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .navbar-button:hover {
-            background-color: white;
-            color: black;
-        }
-
-        .navbar-button:active {
-            background-color: black;
-            color: white;
-        }
-
-        .footercpright {
-            width: 100%;
-            text-align: center;
-            padding: 0.5em 0;
-            margin-top: 8em;
-        }
-
-        .content-centric {
-            width: calc(100% - 4em);
-            padding: 0em 2em;
-            max-width: 900px;
-        }
-
-        .title {
-            width: calc(100% - 4rem);
-            font-size: 5em;
-            padding: 0 2rem 4rem;
-            max-width: 900px;
-        }
-
-        .subtext {
-            font-size: 1.7rem;
-            text-overflow: ellipsis;
-            width: 100%;
-            overflow: hidden;
-        }
-
-        .title-background {
-            width: 100%;
-            min-height: min-content;
-            background: black;
-            display: flex;
-            align-items: center;
-            flex-direction: column;
-        }
-
-        .playfair {
-            font-family: 'Playfair Display';
-        }
         
-        .handwritten {
-            font-family: "Indie Flower", cursive;
-            font-weight: 400;
-            font-style: normal;
-        }
-
-        .monospace {
-            font-family: 'IBM Plex Mono', monospace;
-            font-weight: 100;
-        }
-
-        .font-thin { font-weight: 100; }
-        .font-small {font-size: 0.5rem;}
-
-        .icon {
-            -webkit-mask-size: contain;
-            mask-size: contain;
-            -webkit-mask-image: var(--icon);
-            mask-image: var(--icon);
-            background-color: white;
-            width: 1em;
-            height: 1em;
-            margin-right: 0.5em;
-        }
-        .navbar-button:hover > .icon {
-            background-color: black;
-        }
-        .navbar-button:active > .icon {
-            background-color: white;
-        }
-
-        .scroll-up-button {
-            position: fixed;
-            right: 1em;
-            bottom: 2em;
-            padding: 0.5rem;
-            font-size: 3em;
-            border-radius: 100%;
-            z-index: 1000;
-            opacity: 1;
-            transition: opacity 0.2s ease;
-            user-select: none;
-            cursor: pointer;
-            transition: all 0.1 ease;
-        }
-
-        .scroll-up-button:hover {
-            background-color: white;
-            color: black;
-        }
-
-        .hidden {
-            opacity: 0;
-        }
-
-        .pic-img {
-            width: 100%;
-        }
-
-        .field-specifier {
-            display: flex;
-            justify-content: space-evenly;
-            font-size: calc(100vw * 0.04);
-            margin: 0.5em 0;
-            align-content: center;
-            text-align: center;
-        }
-
-        .field-specifier > span {
-            text-wrap: nowrap;
-        }
-
-        img {
-            filter: grayscale(100%);
-        }
-
-        .grid-container-1 {
-            display: grid;
-            gap: 0.2em;
-            grid-template-columns: repeat(auto-fill, minmax(min(400px, 100%), 1fr));
-            grid-template-rows: auto;
-        }
-
-        .icon-header {
-            width: 100%;
-            justify-content: center;
-            text-align: center;
-            font-size: 4em;
-        }
-
-        .embed-img {
-            width: 100%;
-            filter: brightness(200%) contrast(114%) grayscale(100%);
-        }
-
-        .show-portrait-flex {
-            display: none;
-        }
-
-        /* For mobile screens */
-        @media screen and (max-width: 600px) {
-            .navbar {
-                margin: 0;
-                width: 100%;
-                max-width: unset;
-                border-radius: 0;
-            }
-
-            .pic-img {
-                object-fit: cover;
-                object-position: center top;
-                height: 70vh;
-            }
-
-            .navbar-button {
-                padding: 1em 0.2em !important;
-            }
-
-            .field-specifier > span {
-                text-align: center;
-            }
-
-            .hide-portrait {
-                display: none !important;
-            }
-
-            .show-portrait-flex {
-                display: flex;
-            }
-
-            .field-specifier {
-                flex-flow: column;
-                font-size: calc(250vw * 0.04);
-            }
-
-            #field-specifier-changing {
-                height: calc(250vw * 0.04);
-                margin-bottom: 1em;
-            }
-        }
-
-        /* Max widht 900px is set on cotent-centric */
-        @media screen and (min-width: 900px){
-            .field-specifier {
-                font-size: calc(900px * 0.04);
-            }
-        }
-
-        /* For huge screens */
-        @media screen and (min-width: 1200px) {
-            .title {
-                font-size: 9em;
-                width: max-content;
-                max-width: unset;
-            }
-            .subtext{
-                font-size: 2rem;
-            }
-            .pic-img {
-                height: 1000px;
-                object-fit: cover;
-                object-position: left top;
-            }
-            .content-centric {
-                font-size: 1.5rem;
-            }
-        }
     </style>
     <style>
-        .material-symbols-outlined {
-          font-variation-settings:
-          'FILL' 0,
-          'wght' 400,
-          'GRAD' 0,
-          'opsz' 24
-        }
+        
     </style>
     <script defer src="static/main.js"></script>
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
@@ -321,15 +22,15 @@
 <body>
     <div class="navbar blur">
         <a class="navbar-button" href="https://bento.me/amaank404">
-            <div style="--icon: url(static/images/bento.svg)" class="icon"> </div>
+            <div style="--icon: url(images/bento.svg)" class="icon"> </div>
             Bento
         </a>
         <a class="navbar-button" href="https://github.com/amaank404">
-            <div style="--icon: url(static/images/github.svg)" class="icon"> </div>
+            <div style="--icon: url(images/github.svg)" class="icon"> </div>
             Github
         </a>
         <a class="navbar-button" href="clicker"> 
-            <div style="--icon: url(static/images/click.svg)" class="icon"> </div>
+            <div style="--icon: url(images/click.svg)" class="icon"> </div>
             Fancy Clicker 
         </a>
     </div>
@@ -359,10 +60,33 @@
             Backend Dev
         </div>
         <div class="grid-container-1">
-            <div class="img-container"><img class="embed-img" src="http://github-profile-summary-cards.vercel.app/api/cards/repos-per-language?username=amaank404&theme=github_dark"></div>
-            <div class="img-container"><img class="embed-img" src="http://github-profile-summary-cards.vercel.app/api/cards/most-commit-language?username=amaank404&theme=github_dark"></div>
-            <div class="img-container"><img class="embed-img" src="http://github-profile-summary-cards.vercel.app/api/cards/stats?username=amaank404&theme=github_dark"></div>
-            <div class="img-container"><img class="embed-img" src="http://github-profile-summary-cards.vercel.app/api/cards/productive-time?username=amaank404&theme=github_dark&utcOffset=5.5"></div>
+            <div class="img-container hid"><img class="embed-img" src="http://github-profile-summary-cards.vercel.app/api/cards/repos-per-language?username=amaank404&theme=github_dark"></div>
+            <div class="img-container hid"><img class="embed-img" src="http://github-profile-summary-cards.vercel.app/api/cards/most-commit-language?username=amaank404&theme=github_dark"></div>
+            <div class="img-container hid"><img class="embed-img" src="http://github-profile-summary-cards.vercel.app/api/cards/stats?username=amaank404&theme=github_dark"></div>
+            <div class="img-container hid"><img class="embed-img" src="http://github-profile-summary-cards.vercel.app/api/cards/productive-time?username=amaank404&theme=github_dark&utcOffset=5.5"></div>
+        </div>
+
+        <div style="height: 2em;"></div>
+
+        <div class="text-content">
+            <p class="hid">
+                <span class="playfair huge-title">Hello, </span>
+                I am a self taught software backend developer based in India, I'm passionate
+                about backend development and have a growing interest in networking. In my
+                free time, I'm diving into the world of frontend development and brushing up
+                on my Japanese skills. While my Github profile showcases my projects mostly in Python,
+                I'm always eager to learn and explore new technologies.
+            </p>
+            <p class="hid">
+                Beyond coding, I'm a huge fan of Japanese culure, anime and manga. These
+                interests fuel my creativity and keep me inspired. But that's not all - my
+                curiosity extends far and wide, I'm always eager to sneak up on the latest
+                tech and topics that catch my eye!
+            </p>
+            <p class="hid">
+                I'm excited to connect with others who share my passions and collaborate on
+                projects. I believe that by working together, one can achieve great things.
+            </p>
         </div>
     </div>
     <div class="material-symbols-outlined scroll-up-button blur hidden"> keyboard_arrow_up </div>
