@@ -11,7 +11,7 @@
         @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
         @import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
         @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap');
-        @import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap');
 
         /* width */
         ::-webkit-scrollbar {
@@ -98,15 +98,13 @@
         .footercpright {
             width: 100%;
             text-align: center;
-            position: fixed;
-            bottom: 0;
             padding: 0.5em 0;
-            z-index: 1000;
+            margin-top: 8em;
         }
 
         .content-centric {
             width: calc(100% - 4em);
-            padding: 0em 2em 4em;
+            padding: 0em 2em;
             max-width: 900px;
         }
 
@@ -126,6 +124,7 @@
 
         .title-background {
             width: 100%;
+            min-height: min-content;
             background: black;
             display: flex;
             align-items: center;
@@ -136,8 +135,10 @@
             font-family: 'Playfair Display';
         }
         
-        .caveat {
-            font-family: "Caveat", cursive;
+        .handwritten {
+            font-family: "Indie Flower", cursive;
+            font-weight: 400;
+            font-style: normal;
         }
 
         .monospace {
@@ -198,6 +199,8 @@
             justify-content: space-evenly;
             font-size: calc(100vw * 0.04);
             margin: 0.5em 0;
+            align-content: center;
+            text-align: center;
         }
 
         .field-specifier > span {
@@ -208,19 +211,27 @@
             filter: grayscale(100%);
         }
 
-        .flex-container-1 > img {
-            width: calc(50% - 0.6em);
-            display: inline-block;
-            padding: 0.2em;
+        .grid-container-1 {
+            display: grid;
+            gap: 0.2em;
+            grid-template-columns: repeat(auto-fill, minmax(min(400px, 100%), 1fr));
+            grid-template-rows: auto;
         }
 
-        .flex-container-0 {
-            width: calc(100% - 0.4em);
-            padding: 0 0.2em;
+        .icon-header {
+            width: 100%;
+            justify-content: center;
+            text-align: center;
+            font-size: 4em;
         }
 
         .embed-img {
+            width: 100%;
             filter: brightness(200%) contrast(114%) grayscale(100%);
+        }
+
+        .show-portrait-flex {
+            display: none;
         }
 
         /* For mobile screens */
@@ -232,11 +243,40 @@
                 border-radius: 0;
             }
 
+            .pic-img {
+                object-fit: cover;
+                object-position: center top;
+                height: 70vh;
+            }
+
             .navbar-button {
                 padding: 1em 0.2em !important;
             }
+
+            .field-specifier > span {
+                text-align: center;
+            }
+
+            .hide-portrait {
+                display: none !important;
+            }
+
+            .show-portrait-flex {
+                display: flex;
+            }
+
+            .field-specifier {
+                flex-flow: column;
+                font-size: calc(250vw * 0.04);
+            }
+
+            #field-specifier-changing {
+                height: calc(250vw * 0.04);
+                margin-bottom: 1em;
+            }
         }
 
+        /* Max widht 900px is set on cotent-centric */
         @media screen and (min-width: 900px){
             .field-specifier {
                 font-size: calc(900px * 0.04);
@@ -276,20 +316,20 @@
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 </head>
 <body>
-        <div class="navbar blur">
-            <a class="navbar-button" href="https://bento.me/amaank404">
-                <div style="--icon: url(static/images/bento.svg)" class="icon"> </div>
-                Bento
-            </a>
-            <a class="navbar-button" href="https://github.com/amaank404">
-                <div style="--icon: url(static/images/github.svg)" class="icon"> </div>
-                Github
-            </a>
-            <a class="navbar-button" href="clicker"> 
-                <div style="--icon: url(static/images/click.svg)" class="icon"> </div>
-                Fancy Clicker 
-            </a>
-        </div>
+    <div class="navbar blur">
+        <a class="navbar-button" href="https://bento.me/amaank404">
+            <div style="--icon: url(static/images/bento.svg)" class="icon"> </div>
+            Bento
+        </a>
+        <a class="navbar-button" href="https://github.com/amaank404">
+            <div style="--icon: url(static/images/github.svg)" class="icon"> </div>
+            Github
+        </a>
+        <a class="navbar-button" href="clicker"> 
+            <div style="--icon: url(static/images/click.svg)" class="icon"> </div>
+            Fancy Clicker 
+        </a>
+    </div>
 
     <div class="title-background">
         <div class="navbar-postpad"></div>
@@ -307,20 +347,23 @@
 
     <img src="static/images/pic.jpg" class="pic-img"/>
     <div class="content-centric">
-        <div class="field-specifier caveat">
-            <span>Backend Dev</span> ・ <span>Japanese Learner</span> ・ <span>Indian Student</span></div>
-            <img class="flex-container-0 embed-img" src="http://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=amaank404&theme=github_dark">
-            <div class="flex-container-1">
-                <img class="embed-img" src="http://github-profile-summary-cards.vercel.app/api/cards/repos-per-language?username=amaank404&theme=github_dark">
-                <img class="embed-img" src="http://github-profile-summary-cards.vercel.app/api/cards/most-commit-language?username=amaank404&theme=github_dark">
-            </div>
-            <div class="flex-container-1">
-                <img class="embed-img" src="http://github-profile-summary-cards.vercel.app/api/cards/stats?username=amaank404&theme=github_dark">
-                <img class="embed-img" src="http://github-profile-summary-cards.vercel.app/api/cards/productive-time?username=amaank404&theme=github_dark&utcOffset=5.5">
-            </div>
+        <div class="field-specifier playfair hide-portrait">
+            <span>Backend Dev</span> ・ 
+            <span>Japanese Learner</span> ・ 
+            <span>Indian Student</span>
+        </div>
+        <div id="field-specifier-changing" class="playfair show-portrait-flex field-specifier">
+            Backend Dev
+        </div>
+        <div class="grid-container-1">
+            <div class="img-container"><img class="embed-img" src="http://github-profile-summary-cards.vercel.app/api/cards/repos-per-language?username=amaank404&theme=github_dark"></div>
+            <div class="img-container"><img class="embed-img" src="http://github-profile-summary-cards.vercel.app/api/cards/most-commit-language?username=amaank404&theme=github_dark"></div>
+            <div class="img-container"><img class="embed-img" src="http://github-profile-summary-cards.vercel.app/api/cards/stats?username=amaank404&theme=github_dark"></div>
+            <div class="img-container"><img class="embed-img" src="http://github-profile-summary-cards.vercel.app/api/cards/productive-time?username=amaank404&theme=github_dark&utcOffset=5.5"></div>
+        </div>
     </div>
     <div class="material-symbols-outlined scroll-up-button blur hidden"> keyboard_arrow_up </div>
 
-    <div class="footercpright blur"> Copyright © 2024 Amaan Ahmad Khan</div>
+    <div class="footercpright"> Copyright © 2024 Amaan Ahmad Khan</div>
 </body>
 </html>
