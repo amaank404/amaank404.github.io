@@ -1,0 +1,831 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Article</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="stylesheet" href="/static/blog.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="/static/cookies.js"></script>
+    <script defer src="/static/utils.js"></script>
+    <script defer src="/static/blog.js"></script>
+</head>
+<body>
+    <div class="navbar blur">
+        <a class="navbar-button" href="https://bento.me/amaank404">
+            <div style="--icon: url(images/bento.svg)" class="icon"> </div>
+            Bento
+        </a>
+        <a class="navbar-button" href="https://github.com/amaank404">
+            <div style="--icon: url(images/github.svg)" class="icon"> </div>
+            Github
+        </a>
+        <a class="navbar-button" href="/"> 
+            <div style="--icon: url(images/click.svg)" class="icon"> </div>
+            Home
+        </a>
+    </div>
+
+    <div class="title-container">
+        <div class="navbar-postpad"></div>
+        <div class="title">
+            <span class="title-1">Test</span>
+            <span class="title-2">Article</span>
+        </div>
+        
+            <div class="subtext"> 2024-10-26 </div>
+        
+    </div>
+
+    
+    
+
+    <div class="content-centric blog-content">
+        <h1 id="headers">Headers</h1>
+
+<pre><code># h1 Heading 8-)
+## h2 Heading
+### h3 Heading
+#### h4 Heading
+##### h5 Heading
+###### h6 Heading
+
+Alternatively, for H1 and H2, an underline-ish style:
+
+Alt-H1
+======
+
+Alt-H2
+------
+</code></pre>
+
+<h1 id="h1-heading-8-">h1 Heading 8-)</h1>
+
+<h2 id="h2-heading">h2 Heading</h2>
+
+<h3 id="h3-heading">h3 Heading</h3>
+
+<h4 id="h4-heading">h4 Heading</h4>
+
+<h5 id="h5-heading">h5 Heading</h5>
+
+<h6 id="h6-heading">h6 Heading</h6>
+
+<p>Alternatively, for H1 and H2, an underline-ish style:</p>
+
+<h1 id="alt-h1">Alt-H1</h1>
+
+<h2 id="alt-h2">Alt-H2</h2>
+
+<hr />
+
+<h1 id="emphasis">Emphasis</h1>
+
+<pre><code>Emphasis, aka italics, with *asterisks* or _underscores_.
+
+Strong emphasis, aka bold, with **asterisks** or __underscores__.
+
+Combined emphasis with **asterisks and _underscores_**.
+
+Strikethrough uses two tildes. ~~Scratch this.~~
+
+**This is bold text**
+
+__This is bold text__
+
+*This is italic text*
+
+_This is italic text_
+
+~~Strikethrough~~
+</code></pre>
+
+<p>Emphasis, aka italics, with <em>asterisks</em> or <em>underscores</em>.</p>
+
+<p>Strong emphasis, aka bold, with <strong>asterisks</strong> or <strong>underscores</strong>.</p>
+
+<p>Combined emphasis with <strong>asterisks and <em>underscores</em></strong>.</p>
+
+<p>Strikethrough uses two tildes. <s>Scratch this.</s></p>
+
+<p><strong>This is bold text</strong></p>
+
+<p><strong>This is bold text</strong></p>
+
+<p><em>This is italic text</em></p>
+
+<p><em>This is italic text</em></p>
+
+<p><s>Strikethrough</s></p>
+
+<hr />
+
+<h1 id="lists">Lists</h1>
+
+<pre><code>1. First ordered list item
+2. Another item
+⋅⋅* Unordered sub-list.
+1. Actual numbers don't matter, just that it's a number
+⋅⋅1. Ordered sub-list
+4. And another item.
+
+⋅⋅⋅You can have properly indented paragraphs within list items. Notice the blank line above, and the leading spaces (at least one, but we'll use three here to also align the raw Markdown).
+
+⋅⋅⋅To have a line break without a paragraph, you will need to use two trailing spaces.⋅⋅
+⋅⋅⋅Note that this line is separate, but within the same paragraph.⋅⋅
+⋅⋅⋅(This is contrary to the typical GFM line break behaviour, where trailing spaces are not required.)
+
+* Unordered list can use asterisks
+- Or minuses
++ Or pluses
+
+1. Make my changes
+    1. Fix bug
+    2. Improve formatting
+        - Make the headings bigger
+2. Push my commits to GitHub
+3. Open a pull request
+    * Describe my changes
+    * Mention all the members of my team
+        * Ask for feedback
+
++ Create a list by starting a line with `+`, `-`, or `*`
++ Sub-lists are made by indenting 2 spaces:
+  - Marker character change forces new list start:
+    * Ac tristique libero volutpat at
+    + Facilisis in pretium nisl aliquet
+    - Nulla volutpat aliquam velit
++ Very easy!
+</code></pre>
+
+<ol>
+<li>First ordered list item</li>
+<li>Another item
+⋅⋅* Unordered sub-list.</li>
+<li>Actual numbers don't matter, just that it's a number
+⋅⋅1. Ordered sub-list</li>
+<li>And another item.</li>
+</ol>
+
+<p>⋅⋅⋅You can have properly indented paragraphs within list items. Notice the blank line above, and the leading spaces (at least one, but we'll use three here to also align the raw Markdown).</p>
+
+<p>⋅⋅⋅To have a line break without a paragraph, you will need to use two trailing spaces.⋅⋅
+⋅⋅⋅Note that this line is separate, but within the same paragraph.⋅⋅
+⋅⋅⋅(This is contrary to the typical GFM line break behaviour, where trailing spaces are not required.)</p>
+
+<ul>
+<li><p>Unordered list can use asterisks</p></li>
+<li><p>Or minuses</p></li>
+<li><p>Or pluses</p></li>
+</ul>
+
+<ol>
+<li>Make my changes
+<ol>
+<li>Fix bug</li>
+<li>Improve formatting
+<ul>
+<li>Make the headings bigger</li>
+</ul></li>
+</ol></li>
+<li>Push my commits to GitHub</li>
+<li>Open a pull request
+<ul>
+<li>Describe my changes</li>
+<li>Mention all the members of my team
+<ul>
+<li>Ask for feedback</li>
+</ul></li>
+</ul></li>
+</ol>
+
+<ul>
+<li>Create a list by starting a line with <code>+</code>, <code>-</code>, or <code>*</code></li>
+<li>Sub-lists are made by indenting 2 spaces:
+<ul>
+<li>Marker character change forces new list start:
+<ul>
+<li>Ac tristique libero volutpat at</li>
+<li>Facilisis in pretium nisl aliquet</li>
+<li>Nulla volutpat aliquam velit</li>
+</ul></li>
+</ul></li>
+<li>Very easy!</li>
+</ul>
+
+<hr />
+
+<h1 id="task-lists">Task lists</h1>
+
+<pre><code>- [x] Finish my changes
+- [ ] Push my commits to GitHub
+- [ ] Open a pull request
+- [x] @mentions, #refs, [links](), **formatting**, and &lt;del&gt;tags&lt;/del&gt; supported
+- [x] list syntax required (any unordered or ordered list supported)
+- [x] this is a complete item
+- [ ] this is an incomplete item
+</code></pre>
+
+<ul>
+<li><input type="checkbox" class="task-list-item-checkbox" checked disabled> Finish my changes</li>
+<li><input type="checkbox" class="task-list-item-checkbox" disabled> Push my commits to GitHub</li>
+<li><input type="checkbox" class="task-list-item-checkbox" disabled> Open a pull request</li>
+<li><input type="checkbox" class="task-list-item-checkbox" checked disabled> @mentions, #refs, <a href="">links</a>, <strong>formatting</strong>, and <del>tags</del> supported</li>
+<li><input type="checkbox" class="task-list-item-checkbox" checked disabled> list syntax required (any unordered or ordered list supported)</li>
+<li><input type="checkbox" class="task-list-item-checkbox" disabled> this is a complete item</li>
+<li><input type="checkbox" class="task-list-item-checkbox" disabled> this is an incomplete item</li>
+</ul>
+
+<hr />
+
+<h1 id="ignoring-markdown-formatting">Ignoring Markdown formatting</h1>
+
+<p>You can tell GitHub to ignore (or escape) Markdown formatting by using  before the Markdown character.</p>
+
+<pre><code>Let's rename \*our-new-project\* to \*our-old-project\*.
+</code></pre>
+
+<p>Let's rename *our-new-project* to *our-old-project*.</p>
+
+<hr />
+
+<h1 id="links">Links</h1>
+
+<pre><code>[I'm an inline-style link](https://www.google.com)
+
+[I'm an inline-style link with title](https://www.google.com "Google's Homepage")
+
+[I'm a reference-style link][Arbitrary case-insensitive reference text]
+
+[I'm a relative reference to a repository file](../blob/master/LICENSE)
+
+[You can use numbers for reference-style link definitions][1]
+
+Or leave it empty and use the [link text itself].
+
+URLs and URLs in angle brackets will automatically get turned into links.
+http://www.example.com or &lt;http://www.example.com&gt; and sometimes
+example.com (but not on Github, for example).
+
+Some text to show that the reference links can follow later.
+
+[arbitrary case-insensitive reference text]: https://www.mozilla.org
+[1]: http://slashdot.org
+[link text itself]: http://www.reddit.com
+</code></pre>
+
+<p><a rel="nofollow noopener" target="_blank" href="https://www.google.com">I'm an inline-style link</a></p>
+
+<p><a rel="nofollow noopener" target="_blank" href="https://www.google.com" title="Google's Homepage">I'm an inline-style link with title</a></p>
+
+<p><a rel="nofollow noopener" target="_blank" href="https://www.mozilla.org">I'm a reference-style link</a></p>
+
+<p><a rel="nofollow noopener" target="_blank" href="../blob/master/LICENSE">I'm a relative reference to a repository file</a></p>
+
+<p><a rel="nofollow noopener" target="_blank" href="http://slashdot.org">You can use numbers for reference-style link definitions</a></p>
+
+<p>Or leave it empty and use the [link text itself].</p>
+
+<p>URLs and URLs in angle brackets will automatically get turned into links.
+http://www.example.com or <a rel="nofollow noopener" target="_blank" href="http://www.example.com">http://www.example.com</a> and sometimes
+example.com (but not on Github, for example).</p>
+
+<p>Some text to show that the reference links can follow later.</p>
+
+<hr />
+
+<h1 id="images">Images</h1>
+
+<pre><code>Here's our logo (hover to see the title text):
+
+Inline-style:
+![alt text](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "Logo Title Text 1")
+
+Reference-style:
+![alt text][logo]
+
+[logo]: https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "Logo Title Text 2"
+
+![Minion](https://octodex.github.com/images/minion.png)
+![Stormtroopocat](https://octodex.github.com/images/stormtroopocat.jpg "The Stormtroopocat")
+
+Like links, Images also have a footnote style syntax
+
+![Alt text][id]
+
+With a reference later in the document defining the URL location:
+
+[id]: https://octodex.github.com/images/dojocat.jpg  "The Dojocat"
+</code></pre>
+
+<p>Here's our logo (hover to see the title text):</p>
+
+<p>Inline-style:
+<img src="https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png" alt="alt text" title="Logo Title Text 1" /></p>
+
+<p>Reference-style:
+<img src="https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png" alt="alt text" title="Logo Title Text 2" /></p>
+
+<p><img src="https://octodex.github.com/images/minion.png" alt="Minion" />
+<img src="https://octodex.github.com/images/stormtroopocat.jpg" alt="Stormtroopocat" title="The Stormtroopocat" /></p>
+
+<p>Like links, Images also have a footnote style syntax</p>
+
+<p><img src="https://octodex.github.com/images/dojocat.jpg" alt="Alt text" title="The Dojocat" /></p>
+
+<p>With a reference later in the document defining the URL location:</p>
+
+<hr />
+
+<h1 id="footnoteshttpsgithubcommarkdown-itmarkdown-it-footnote"><a rel="nofollow noopener" target="_blank" href="https://github.com/markdown-it/markdown-it-footnote">Footnotes</a></h1>
+
+<pre><code>Footnote 1 link[^first].
+
+Footnote 2 link[^second].
+
+Inline footnote^[Text of inline footnote] definition.
+
+Duplicated footnote reference[^second].
+
+[^first]: Footnote **can have markup**
+
+    and multiple paragraphs.
+
+[^second]: Footnote text.
+</code></pre>
+
+<p>Footnote 1 link<sup class="footnote-ref" id="fnref-first"><a href="#fn-first">1</a></sup>.</p>
+
+<p>Footnote 2 link<sup class="footnote-ref" id="fnref-second"><a href="#fn-second">2</a></sup>.</p>
+
+<p>Inline footnote^[Text of inline footnote] definition.</p>
+
+<p>Duplicated footnote reference<sup class="footnote-ref" id="fnref-second"><a href="#fn-second">3</a></sup>.</p>
+
+<hr />
+
+<h1 id="code-and-syntax-highlighting">Code and Syntax Highlighting</h1>
+
+<pre><code>Inline `code` has `back-ticks around` it.
+</code></pre>
+
+<p>Inline <code>code</code> has <code>back-ticks around</code> it.</p>
+
+<p>```c#
+using System.IO.Compression;</p>
+
+<h1 id="pragma-warning-disable-414-3021">pragma warning disable 414, 3021</h1>
+
+<p>namespace MyApplication
+{
+    [Obsolete("...")]
+    class Program : IInterface
+    {
+        public static List<int> JustDoIt(int count)
+        {
+            Console.WriteLine($"Hello {Name}!");
+            return new List<int>(new int[] { 1, 2, 3 })
+        }
+    }
+}</p>
+
+<pre><code>
+```css
+@font-face {
+  font-family: Chunkfive;
+  src: url("Chunkfive.otf");
+}
+
+body,
+.usertext {
+  color: #f0f0f0;
+  background: #600;
+  font-family: Chunkfive, sans;
+}
+
+@import url(print.css);
+@media print {
+  a[href^="http"]::after {
+    content: attr(href);
+  }
+}
+</code></pre>
+
+<div class="codehilite">
+<pre><span></span><code><span class="kd">function</span><span class="w"> </span><span class="nx">$initHighlight</span><span class="p">(</span><span class="nx">block</span><span class="p">,</span><span class="w"> </span><span class="nx">cls</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">try</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">cls</span><span class="p">.</span><span class="nx">search</span><span class="p">(</span><span class="sr">/\bno\-highlight\b/</span><span class="p">)</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="o">-</span><span class="mf">1</span><span class="p">)</span>
+<span class="w">      </span><span class="k">return</span><span class="w"> </span><span class="nx">process</span><span class="p">(</span><span class="nx">block</span><span class="p">,</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"> </span><span class="mh">0x0F</span><span class="p">)</span><span class="w"> </span><span class="o">+</span>
+<span class="w">             </span><span class="sb">` class=&quot;</span><span class="si">${</span><span class="nx">cls</span><span class="si">}</span><span class="sb">&quot;`</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="nx">e</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="cm">/* handle exception */</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kd">var</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mf">2</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="nx">classes</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">checkCondition</span><span class="p">(</span><span class="nx">classes</span><span class="p">[</span><span class="nx">i</span><span class="p">])</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="kc">undefined</span><span class="p">)</span>
+<span class="w">      </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;undefined&#39;</span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="k">export</span><span class="w">  </span><span class="nx">$initHighlight</span><span class="p">;</span>
+</code></pre>
+</div>
+
+<div class="codehilite">
+<pre><span></span><code><span class="x">require_once &#39;Zend/Uri/Http.php&#39;;</span>
+
+<span class="x">namespace Location\Web;</span>
+
+<span class="x">interface Factory</span>
+<span class="x">{</span>
+<span class="x">    static function _factory();</span>
+<span class="x">}</span>
+
+<span class="x">abstract class URI extends BaseURI implements Factory</span>
+<span class="x">{</span>
+<span class="x">    abstract function test();</span>
+
+<span class="x">    public static $st1 = 1;</span>
+<span class="x">    const ME = &quot;Yo&quot;;</span>
+<span class="x">    var $list = NULL;</span>
+<span class="x">    private $var;</span>
+
+<span class="x">    /**</span>
+<span class="x">     * Returns a URI</span>
+<span class="x">     *</span>
+<span class="x">     * @return URI</span>
+<span class="x">     */</span>
+<span class="x">    static public function _factory($stats = array(), $uri = &#39;http&#39;)</span>
+<span class="x">    {</span>
+<span class="x">        echo __METHOD__;</span>
+<span class="x">        $uri = explode(&#39;:&#39;, $uri, 0b10);</span>
+<span class="x">        $schemeSpecific = isset($uri[1]) ? $uri[1] : &#39;&#39;;</span>
+<span class="x">        $desc = &#39;Multi</span>
+<span class="x">line description&#39;;</span>
+
+<span class="x">        // Security check</span>
+<span class="x">        if (!ctype_alnum($scheme)) {</span>
+<span class="x">            throw new Zend_Uri_Exception(&#39;Illegal scheme&#39;);</span>
+<span class="x">        }</span>
+
+<span class="x">        $this-&gt;var = 0 - self::$st;</span>
+<span class="x">        $this-&gt;list = list(Array(&quot;1&quot;=&gt; 2, 2=&gt;self::ME, 3 =&gt; \Location\Web\URI::class));</span>
+
+<span class="x">        return [</span>
+<span class="x">            &#39;uri&#39;   =&gt; $uri,</span>
+<span class="x">            &#39;value&#39; =&gt; null,</span>
+<span class="x">        ];</span>
+<span class="x">    }</span>
+<span class="x">}</span>
+
+<span class="x">echo URI::ME . URI::$st1;</span>
+
+<span class="x">__halt_compiler () ; datahere</span>
+<span class="x">datahere</span>
+<span class="x">datahere */</span>
+<span class="x">datahere</span>
+</code></pre>
+</div>
+
+<hr />
+
+<h1 id="tables">Tables</h1>
+
+<pre><code>Colons can be used to align columns.
+
+| Tables        | Are           | Cool  |
+| ------------- |:-------------:| -----:|
+| col 3 is      | right-aligned | $1600 |
+| col 2 is      | centered      |   $12 |
+| zebra stripes | are neat      |    $1 |
+
+There must be at least 3 dashes separating each header cell.
+The outer pipes (|) are optional, and you don't need to make the
+raw Markdown line up prettily. You can also use inline Markdown.
+
+Markdown | Less | Pretty
+--- | --- | ---
+*Still* | `renders` | **nicely**
+1 | 2 | 3
+
+| First Header  | Second Header |
+| ------------- | ------------- |
+| Content Cell  | Content Cell  |
+| Content Cell  | Content Cell  |
+
+| Command | Description |
+| --- | --- |
+| git status | List all new or modified files |
+| git diff | Show file differences that haven't been staged |
+
+| Command | Description |
+| --- | --- |
+| `git status` | List all *new or modified* files |
+| `git diff` | Show file differences that **haven't been** staged |
+
+| Left-aligned | Center-aligned | Right-aligned |
+| :---         |     :---:      |          ---: |
+| git status   | git status     | git status    |
+| git diff     | git diff       | git diff      |
+
+| Name     | Character |
+| ---      | ---       |
+| Backtick | `         |
+| Pipe     | \|        |
+</code></pre>
+
+<p>Colons can be used to align columns.</p>
+
+<table>
+<thead>
+<tr>
+  <th>Tables</th>
+  <th style="text-align:center;">Are</th>
+  <th style="text-align:right;">Cool</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>col 3 is</td>
+  <td style="text-align:center;">right-aligned</td>
+  <td style="text-align:right;">$1600</td>
+</tr>
+<tr>
+  <td>col 2 is</td>
+  <td style="text-align:center;">centered</td>
+  <td style="text-align:right;">$12</td>
+</tr>
+<tr>
+  <td>zebra stripes</td>
+  <td style="text-align:center;">are neat</td>
+  <td style="text-align:right;">$1</td>
+</tr>
+</tbody>
+</table>
+
+<p>There must be at least 3 dashes separating each header cell.
+The outer pipes (|) are optional, and you don't need to make the
+raw Markdown line up prettily. You can also use inline Markdown.</p>
+
+<table>
+<thead>
+<tr>
+  <th>Markdown</th>
+  <th>Less</th>
+  <th>Pretty</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td><em>Still</em></td>
+  <td><code>renders</code></td>
+  <td><strong>nicely</strong></td>
+</tr>
+<tr>
+  <td>1</td>
+  <td>2</td>
+  <td>3</td>
+</tr>
+</tbody>
+</table>
+
+<table>
+<thead>
+<tr>
+  <th>First Header</th>
+  <th>Second Header</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>Content Cell</td>
+  <td>Content Cell</td>
+</tr>
+<tr>
+  <td>Content Cell</td>
+  <td>Content Cell</td>
+</tr>
+</tbody>
+</table>
+
+<table>
+<thead>
+<tr>
+  <th>Command</th>
+  <th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>git status</td>
+  <td>List all new or modified files</td>
+</tr>
+<tr>
+  <td>git diff</td>
+  <td>Show file differences that haven't been staged</td>
+</tr>
+</tbody>
+</table>
+
+<table>
+<thead>
+<tr>
+  <th>Command</th>
+  <th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td><code>git status</code></td>
+  <td>List all <em>new or modified</em> files</td>
+</tr>
+<tr>
+  <td><code>git diff</code></td>
+  <td>Show file differences that <strong>haven't been</strong> staged</td>
+</tr>
+</tbody>
+</table>
+
+<table>
+<thead>
+<tr>
+  <th style="text-align:left;">Left-aligned</th>
+  <th style="text-align:center;">Center-aligned</th>
+  <th style="text-align:right;">Right-aligned</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td style="text-align:left;">git status</td>
+  <td style="text-align:center;">git status</td>
+  <td style="text-align:right;">git status</td>
+</tr>
+<tr>
+  <td style="text-align:left;">git diff</td>
+  <td style="text-align:center;">git diff</td>
+  <td style="text-align:right;">git diff</td>
+</tr>
+</tbody>
+</table>
+
+<table>
+<thead>
+<tr>
+  <th>Name</th>
+  <th>Character</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>Backtick</td>
+  <td>`</td>
+</tr>
+<tr>
+  <td>Pipe</td>
+  <td>|</td>
+</tr>
+</tbody>
+</table>
+
+<hr />
+
+<h1 id="blockquotes">Blockquotes</h1>
+
+<pre><code>&gt; Blockquotes are very handy in email to emulate reply text.
+&gt; This line is part of the same quote.
+
+Quote break.
+
+&gt; This is a very long line that will still be quoted properly when it wraps. Oh boy let's keep writing to make sure this is long enough to actually wrap for everyone. Oh, you can *put* **Markdown** into a blockquote.
+
+&gt; Blockquotes can also be nested...
+&gt;&gt; ...by using additional greater-than signs right next to each other...
+&gt; &gt; &gt; ...or with spaces between arrows.
+</code></pre>
+
+<blockquote>
+  <p>Blockquotes are very handy in email to emulate reply text.
+  This line is part of the same quote.</p>
+</blockquote>
+
+<p>Quote break.</p>
+
+<blockquote>
+  <p>This is a very long line that will still be quoted properly when it wraps. Oh boy let's keep writing to make sure this is long enough to actually wrap for everyone. Oh, you can <em>put</em> <strong>Markdown</strong> into a blockquote.</p>
+</blockquote>
+
+<blockquote>
+  <p>Blockquotes can also be nested...</p>
+  
+  <blockquote>
+    <p>...by using additional greater-than signs right next to each other...</p>
+    
+    <blockquote>
+      <p>...or with spaces between arrows.</p>
+    </blockquote>
+  </blockquote>
+</blockquote>
+
+<hr />
+
+<h1 id="inline-html">Inline HTML</h1>
+
+<pre><code>&lt;dl&gt;
+  &lt;dt&gt;Definition list&lt;/dt&gt;
+  &lt;dd&gt;Is something people use sometimes.&lt;/dd&gt;
+
+  &lt;dt&gt;Markdown in HTML&lt;/dt&gt;
+  &lt;dd&gt;Does *not* work **very** well. Use HTML &lt;em&gt;tags&lt;/em&gt;.&lt;/dd&gt;
+&lt;/dl&gt;
+</code></pre>
+
+<dl>
+  <dt>Definition list</dt>
+  <dd>Is something people use sometimes.</dd>
+
+  <dt>Markdown in HTML</dt>
+  <dd>Does *not* work **very** well. Use HTML <em>tags</em>.</dd>
+</dl>
+
+<hr />
+
+<h1 id="horizontal-rules">Horizontal Rules</h1>
+
+<pre><code>Three or more...
+
+---
+
+Hyphens
+
+***
+
+Asterisks
+
+___
+
+Underscores
+</code></pre>
+
+<p>Three or more...</p>
+
+<hr />
+
+<p>Hyphens</p>
+
+<hr />
+
+<p>Asterisks</p>
+
+<hr />
+
+<p>Underscores</p>
+
+<hr />
+
+<h1 id="youtube-videos">YouTube Videos</h1>
+
+<pre><code>&lt;a href="http://www.youtube.com/watch?feature=player_embedded&amp;v=YOUTUBE_VIDEO_ID_HERE" target="_blank"&gt;
+&lt;img src="http://img.youtube.com/vi/YOUTUBE_VIDEO_ID_HERE/0.jpg" alt="IMAGE ALT TEXT HERE" width="240" height="180" border="10"&gt;
+&lt;/a&gt;
+</code></pre>
+
+<a rel="nofollow noopener" target="_blank" href="http://www.youtube.com/watch?feature=player_embedded&amp;v=YOUTUBE_VIDEO_ID_HERE" target="_blank">
+<img src="http://img.youtube.com/vi/YOUTUBE_VIDEO_ID_HERE/0.jpg" alt="IMAGE ALT TEXT HERE" width="240" height="180" border="10">
+</a>
+
+<pre><code>[![IMAGE ALT TEXT HERE](http://img.youtube.com/vi/YOUTUBE_VIDEO_ID_HERE/0.jpg)](http://www.youtube.com/watch?v=YOUTUBE_VIDEO_ID_HERE)
+</code></pre>
+
+<p><a rel="nofollow noopener" target="_blank" href="https://www.youtube.com/watch?v=ciawICBvQoE"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ef/YouTube_logo_2015.svg/1200px-YouTube_logo_2015.svg.png" alt="IMAGE ALT TEXT HERE" /></a></p>
+
+<div class="footnotes">
+<hr />
+<ol>
+<li id="fn-first">
+<p>Footnote <strong>can have markup</strong></p>
+
+<p>and multiple paragraphs.&#160;<a href="#fnref-first" class="footnoteBackLink" title="Jump back to footnote 1 in the text.">&#8617;</a></p>
+</li>
+
+<li id="fn-second">
+<p>Footnote text.&#160;<a href="#fnref-second" class="footnoteBackLink" title="Jump back to footnote 2 in the text.">&#8617;</a></p>
+</li>
+
+<li id="fn-second">
+<p>Footnote text.&#160;<a href="#fnref-second" class="footnoteBackLink" title="Jump back to footnote 3 in the text.">&#8617;</a></p>
+</li>
+</ol>
+</div>
+
+    </div>
+
+    <div class="pre-footer-pad"></div>
+    <div class="material-symbols-outlined scroll-view-button blur button-right scroll-up-button"> keyboard_arrow_up </div>
+    <div class="material-symbols-outlined scroll-view-button blur button-left theme-button"> dark_mode </div>
+    <div class="footercpright"> Copyright © 2024 Amaan Ahmad Khan</div>
+</body>
+</html>
