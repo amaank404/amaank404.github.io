@@ -1,0 +1,87 @@
+@import url('common.css');
+@import url('navbar.css');
+@import url('footer.css');
+
+/* Index items */
+.__index {
+    width: 100%;
+    padding-top: 4rem;
+}
+
+.__index-item {
+    width: 100%;
+    background-color: var(--background-em);
+    border-radius: 1rem;
+    overflow: hidden;
+    align-items: center;
+    cursor: pointer;
+}
+
+.__index-item:hover .__index-title {
+    text-decoration: underline;
+}
+
+.__index-image-container {
+    margin: 1rem;
+    border-radius: 0.5rem;
+    overflow: hidden;
+}
+.__index-image {
+    width: 12rem;
+    height: 8rem;
+    object-fit: cover;
+}
+.__index-title {
+    font-size: 1.5rem;
+}
+.__index-subtext {
+    font-weight: 200;
+}
+
+.__flex {display: flex;}
+.__flex-row {flex-direction: row;}
+.__flex-col {flex-direction: column;}
+
+.navbar-postpad {
+    height: 5em;
+}
+
+.title-container {
+    background-color: var(--background-em);
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.title {
+    font-size: 5rem;
+    padding: 2rem 2rem 1rem;
+}
+
+.title-2 {
+    font-weight: 100;
+}
+
+.title-1 {
+    font-family: 'Playfair Display', serif;
+}
+
+.title-image {
+    width: 100vw;
+    height: 30vh;
+    object-fit: cover;
+}
+
+.subtext {
+    font-style: italic;
+    font-size: 1.5rem;
+    font-weight: 300;
+    margin-bottom: 2rem;
+}
+
+@media screen and (min-width: 1200px) {
+    .title-image {
+        height: 50vh;
+    }
+}

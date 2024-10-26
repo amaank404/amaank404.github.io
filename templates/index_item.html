@@ -1,0 +1,20 @@
+<div class="__flex __flex-row __index-item" onclick="window.location.href = '{{url}}'">
+    <div class="__index-image-container">
+        {% if image %}
+        <img src="{{ image }}" class="__index-image"/>
+        {% else %}
+        <div class="__index-image"></div>
+        {% endif %}
+    </div>
+
+    <div class="__index-content">
+        <div class="__index-title">
+            {{ title }}
+        </div>
+        {% if subtext %}
+        <div class="__index-subtext">
+            {{ subtext }}
+        </div>
+        {% endif %}
+    </div>
+</div>

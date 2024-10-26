@@ -1,0 +1,116 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap');
+@import url('colors.css');
+
+.material-symbols-outlined {
+    font-variation-settings:
+    'FILL' 0,
+    'wght' 400,
+    'GRAD' 0,
+    'opsz' 24
+}
+
+body {
+    padding: 0;
+    margin: 0;
+    background-color: var(--background);
+    color: var(--text);
+    font-family: Raleway, Arial, Helvetica, sans-serif;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: start;
+    min-height: 100vh;
+    position: relative;
+}
+
+/* width */
+::-webkit-scrollbar {
+    width: 6px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: var(--background);
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: var(--scroll-thumb);
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: var(--scroll-thumb-hover);
+}
+
+.blur {
+    background-color: var(--blur-color);
+    backdrop-filter: blur(7px);
+}
+
+.scroll-view-button {
+    padding: 1rem;
+    font-size: 2em !important;
+    border-radius: 100%;
+    z-index: 1000;
+    opacity: 1;
+    transition-property: opacity, background-color, color;
+    transition-duration: 0.2s;
+    transition-timing-function: ease;
+    user-select: none;
+    cursor: pointer;
+}
+
+.button-right {
+    position: fixed;
+    right: 1em;
+    bottom: 2em;
+}
+
+.button-left {
+    position: fixed;
+    left: 1em;
+    bottom: 2em;
+}
+
+.scroll-view-button:hover {
+    background-color: var(--text);
+    color: var(--background-em);
+}
+
+.light-theme .scroll-view-button {
+    box-shadow: 0 0 10px 10px rgba(0, 0, 0, 5%);
+}
+
+.hidden {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.content-centric {
+    width: calc(100% - 4em);
+    padding: 0em 2em;
+    max-width: 900px;
+}
+
+@media screen and (min-width: 1200px) {
+    .content-centric {
+        font-size: 1.5rem;
+    }
+}
+
+.hid {
+    transition: opacity 0.5s ease;
+    opacity: 0;
+}
+
+.sho {
+    opacity: 1;
+}
+
+.pre-footer-pad {
+    height: 10rem;
+}

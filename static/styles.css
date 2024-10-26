@@ -1,127 +1,9 @@
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap');
-
-/* Colors */
-body {
-    --background: #111;
-    --background-em: black;
-    --text: white;
-    --scroll-thumb: #333;
-    --scroll-thumb-hover: #555;
-    --blur-color: rgba(0, 0, 0, 50%);
-}
-
-.light-theme {
-    --background: white;
-    --background-em: white;
-    --text: black;
-    --blur-color: rgba(255, 255, 255, 80%);
-}
-
-.material-symbols-outlined {
-    font-variation-settings:
-    'FILL' 0,
-    'wght' 400,
-    'GRAD' 0,
-    'opsz' 24
-}
-
-body {
-    padding: 0;
-    margin: 0;
-    background-color: var(--background);
-    color: var(--text);
-    font-family: Raleway, Arial, Helvetica, sans-serif;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-}
-
-/* width */
-::-webkit-scrollbar {
-    width: 6px;
-}
-
-/* Track */
-::-webkit-scrollbar-track {
-    background: var(--background);
-}
-
-/* Handle */
-::-webkit-scrollbar-thumb {
-    background: var(--scroll-thumb);
-}
-
-/* Handle on hover */
-::-webkit-scrollbar-thumb:hover {
-    background: var(--scroll-thumb-hover);
-}
-
-.blur {
-    background-color: var(--blur-color);
-    backdrop-filter: blur(7px);
-}
-
+@import url('common.css');
+@import url('navbar.css');
+@import url('footer.css');
 
 .navbar-postpad {
     height: 9em;
-}
-
-.navbar {
-    z-index: 1000;
-    width: calc(100% - 4em);
-    display: flex;
-    margin: 2em;
-    position: fixed;
-    top: 0;
-    border-radius: 1em;
-    overflow: hidden;
-    flex-wrap: wrap;
-    max-width: 600px;
-    user-select: none;
-    align-content: center;
-}
-
-.navbar-borders > *{
-    padding-top: 1.5em !important;
-    padding-bottom: 1.5em !important;
-}
-
-.navbar-button {
-    flex: auto;
-    padding: 1em;
-    color: var(--text);
-    text-decoration: none;
-    text-align: center;
-    transition: all 0.1s ease;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.navbar-button:hover {
-    background-color: var(--text);
-    color: var(--background-em);
-}
-
-.navbar-button:active {
-    background-color: var(--background-em);
-    color: var(--text);
-}
-
-.footercpright {
-    width: 100%;
-    text-align: center;
-    padding: 0.5em 0;
-    margin-top: 8em;
-}
-
-.content-centric {
-    width: calc(100% - 4em);
-    padding: 0em 2em;
-    max-width: 900px;
 }
 
 .title {
@@ -173,62 +55,6 @@ body {
     float: left;
     margin-right: 0.2em;
     line-height: 0.85;
-}
-
-.icon {
-    -webkit-mask-size: contain;
-    mask-size: contain;
-    -webkit-mask-image: var(--icon);
-    mask-image: var(--icon);
-    background-color: var(--text);
-    width: 1em;
-    height: 1em;
-    margin-right: 0.5em;
-}
-.navbar-button:hover > .icon {
-    background-color: var(--background-em);
-}
-.navbar-button:active > .icon {
-    background-color: var(--text);
-}
-
-.scroll-view-button {
-    padding: 1rem;
-    font-size: 2em !important;
-    border-radius: 100%;
-    z-index: 1000;
-    opacity: 1;
-    transition-property: opacity, background-color, color;
-    transition-duration: 0.2s;
-    transition-timing-function: ease;
-    user-select: none;
-    cursor: pointer;
-}
-
-.button-right {
-    position: fixed;
-    right: 1em;
-    bottom: 2em;
-}
-
-.button-left {
-    position: fixed;
-    left: 1em;
-    bottom: 2em;
-}
-
-.scroll-view-button:hover {
-    background-color: var(--text);
-    color: var(--background-em);
-}
-
-.light-theme .scroll-view-button {
-    box-shadow: 0 0 10px 10px rgba(0, 0, 0, 5%);
-}
-
-.hidden {
-    opacity: 0;
-    visibility: hidden;
 }
 
 .pic-img {
@@ -290,32 +116,12 @@ p {
     text-align: justify;
 }
 
-.hid {
-    transition: opacity 0.5s ease;
-    opacity: 0;
-}
-
-.sho {
-    opacity: 1;
-}
-
 /* For mobile screens */
 @media screen and (max-width: 600px) {
-    .navbar {
-        margin: 0;
-        width: 100%;
-        max-width: unset;
-        border-radius: 0;
-    }
-
     .pic-img {
         object-fit: cover;
         object-position: center top;
         height: 70vh;
-    }
-
-    .navbar-button {
-        padding: 1em 0.2em !important;
     }
 
     .field-specifier > span {

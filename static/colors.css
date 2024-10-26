@@ -1,0 +1,15 @@
+body {
+    --background: #111;
+    --background-em: black;
+    --text: white;
+    --scroll-thumb: #333;
+    --scroll-thumb-hover: #555;
+    --blur-color: rgba(0, 0, 0, 50%);
+}
+
+.light-theme {
+    --background: white;
+    --background-em: white;
+    --text: black;
+    --blur-color: rgba(255, 255, 255, 80%);
+}
