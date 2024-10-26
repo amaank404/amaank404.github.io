@@ -7,6 +7,11 @@ indexitem = jinja2.Template(Path("templates/index_item.html").read_text())
 
 blogs = []
 
+blogdir = Path("blog")
+if blogdir.exists():
+    blogdir.rmtree()
+Path("blog").mkdir(exist_ok=True)
+
 for x in Path("blog_src").iterdir():
     if x.suffix == ".md":
         data = x.read_text("utf-8") + "\n" * 3
