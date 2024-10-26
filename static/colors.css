@@ -1,6 +1,7 @@
 body {
     --background: #111;
     --background-em: black;
+    --placeholder: #111;
     --text: white;
     --scroll-thumb: #333;
     --scroll-thumb-hover: #555;
@@ -11,6 +12,7 @@ body {
 .light-theme {
     --background: white;
     --background-em: white;
+    --placeholder: #eee;
     --text: black;
     --blur-color: rgba(255, 255, 255, 80%);
     --unhighlight-text: black;

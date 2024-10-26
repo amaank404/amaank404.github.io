@@ -27,7 +27,7 @@
     margin: 1rem;
     border-radius: 0.5rem;
     overflow: hidden;
-    background-color: var(--background);
+    background-color: var(--placeholder);
 }
 .__index-image {
     width: 12rem;
