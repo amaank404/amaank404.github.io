@@ -23,5 +23,6 @@ jobs:
         run: |
           git config --global user.name 'Amaan Khan'
           git config --global user.email '71920621+amaank404@users.noreply.github.com'
+          git add blog
           git commit -am "Automated blog html publish"
           git push
