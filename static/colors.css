@@ -5,6 +5,7 @@ body {
     --scroll-thumb: #333;
     --scroll-thumb-hover: #555;
     --blur-color: rgba(0, 0, 0, 50%);
+    --unhighlight-text: #666;
 }
 
 .light-theme {
@@ -12,4 +13,5 @@ body {
     --background-em: white;
     --text: black;
     --blur-color: rgba(255, 255, 255, 80%);
+    --unhighlight-text: black;
 }

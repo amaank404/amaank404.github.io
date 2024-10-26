@@ -1,6 +1,7 @@
 @import url('common.css');
 @import url('navbar.css');
 @import url('footer.css');
+@import url('code_highlight_pygments.css');
 
 /* Index items */
 .__index {
@@ -15,6 +16,7 @@
     overflow: hidden;
     align-items: center;
     cursor: pointer;
+    margin-bottom: 1rem;
 }
 
 .__index-item:hover .__index-title {
@@ -25,6 +27,7 @@
     margin: 1rem;
     border-radius: 0.5rem;
     overflow: hidden;
+    background-color: var(--background);
 }
 .__index-image {
     width: 12rem;
@@ -43,7 +46,7 @@
 .__flex-col {flex-direction: column;}
 
 .navbar-postpad {
-    height: 5em;
+    height: 5rem;
 }
 
 .title-container {
@@ -68,9 +71,13 @@
 }
 
 .title-image {
-    width: 100vw;
+    width: 100%;
     height: 30vh;
     object-fit: cover;
+}
+
+.image-container {
+    width: 100%;
 }
 
 .subtext {
@@ -79,6 +86,62 @@
     font-weight: 300;
     margin-bottom: 2rem;
 }
+
+/* Following is for markdown contents */
+.blog-content {
+    line-height: 1.3;
+}
+
+.blog-content .codehilite {
+    border-radius: 1em;
+    padding: 1em;
+    margin: 0.5em 0;
+}
+
+.blog-content pre {
+    overflow-x: auto;
+    font-family: 'IBM Plex Mono', monospace;
+}
+
+.blog-content img {
+    max-width: 100%;
+}
+
+.blog-content li {
+    padding: 0.1em 0;
+}
+
+.blog-content a {
+    text-decoration: underline;
+    color: var(--text);
+}
+
+.blog-content hr {
+    margin: 3em 1em;
+}
+
+.blog-content .footnote-ref::before {
+    content: "[";
+    transform: translate(-0.1em);
+}
+
+.blog-content .footnote-ref::after {
+    content: "]";
+}
+
+.blog-content table, .blog-content th, .blog-content td {
+    border: 1px solid var(--unhighlight-text);
+    border-collapse: collapse;
+}
+
+.blog-content table {
+    margin: 0.3em 0;
+}
+
+.blog-content td, .blog-content th {
+    padding: 0.3em;
+}
+
 
 @media screen and (min-width: 1200px) {
     .title-image {

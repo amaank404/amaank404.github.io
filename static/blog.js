@@ -1,1 +1,1 @@
-setup_navbar(() => $(".navbar").outerHeight(), false);
+setup_navbar(() => $(".title-container").outerHeight(), false);
