@@ -83,5 +83,7 @@ const observer = new IntersectionObserver((entries) => {
     });
 });
 
-const hiddenElements = document.querySelectorAll('.hid');
-hiddenElements.forEach((el) => observer.observe(el));
+function setupScrollShow() {
+    const hiddenElements = document.querySelectorAll('.hid');
+    hiddenElements.forEach((el) => observer.observe(el));
+}

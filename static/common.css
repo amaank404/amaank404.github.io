@@ -118,3 +118,7 @@ body {
 .pre-footer-pad {
     height: 10rem;
 }
+
+.no-transition {
+    transition: none;
+}
