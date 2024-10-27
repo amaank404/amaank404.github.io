@@ -54,6 +54,10 @@ for x in Path("blog_src").iterdir():
 indexhtml = '<div class="__index">'
 
 for url, title, image, subtext in sorted(blogs, key=lambda x: x[3], reverse=True):
+    if image:
+        if Path(image.strip("/")).parents[0].name == "blog_images":
+            image = "/blog_images_downscaled/" + image.strip("/").split("/", 1)[1]
+
     item = indexitem.render(
         title=title, image=image, subtext=subtext, url=f"/blog/{url}"
     )
