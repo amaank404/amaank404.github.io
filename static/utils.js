@@ -6,9 +6,9 @@ let scrollViewButton = $('.scroll-view-button');
 let scrollUpButton = $('.scroll-up-button');
 let themeButton = $('.theme-button');
 
-let theme = readCookie("theme");
+let theme = localStorage.getItem("theme");
 if (theme === null) {
-    createCookie("theme", "dark", 365);
+    localStorage.setItem("theme", "dark");
     theme = "dark";
 }
 setTheme(theme);
@@ -18,11 +18,11 @@ function setTheme(theme) {
     if (theme === "dark") {
         bodyTag.removeClass("light-theme");
         themeButton.text("dark_mode");
-        createCookie("theme", "dark");
+        localStorage.setItem("theme", "dark");
     } else {
         bodyTag.addClass("light-theme");
         themeButton.text("light_mode");
-        createCookie("theme", "light");
+        localStorage.setItem("theme", "light");
     }
 }
 
@@ -86,4 +86,16 @@ const observer = new IntersectionObserver((entries) => {
 function setupScrollShow() {
     const hiddenElements = document.querySelectorAll('.hid');
     hiddenElements.forEach((el) => observer.observe(el));
+}
+
+function setupBorderView() {
+    if (localStorage.getItem("outlines") === "true") {
+        $("body").toggleClass('show-borders');
+    }
+    
+
+    $(".border-view-button").click(() => {
+        $("body").toggleClass('show-borders');
+        localStorage.setItem("outlines", $("body").hasClass("show-borders"));
+    })
 }

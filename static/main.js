@@ -34,3 +34,4 @@ async function changeFieldSpecifierText() {
 
 changeFieldSpecifierText();
 setupScrollShow();
+setupBorderView();

@@ -52,10 +52,9 @@ body {
     backdrop-filter: blur(7px);
 }
 
-.scroll-view-button {
+.scroll-view-button, .border-view-button {
     padding: 1rem;
     font-size: 2em !important;
-    border-radius: 100%;
     z-index: 1000;
     opacity: 1;
     transition-property: opacity, background-color, color;
@@ -65,26 +64,30 @@ body {
     cursor: pointer;
 }
 
+.scroll-view-button {
+    border-radius: 100%;
+}
+
 .button-right {
     position: fixed;
     right: 1em;
-    bottom: 2em;
+    bottom: 4rem;
 }
 
 .button-left {
     position: fixed;
     left: 1em;
-    bottom: 2em;
+    bottom: 4rem;
 }
 
 @media (hover: hover) {
-    .scroll-view-button:hover {
+    .scroll-view-button:hover, .border-view-button:hover{
         background-color: var(--text);
         color: var(--background-em);
     }
 }
 
-.light-theme .scroll-view-button {
+.light-theme .scroll-view-button, .light-theme .border-view-button {
     box-shadow: 0 0 30px 3px rgba(0, 0, 0, 4%);
 }
 
@@ -121,4 +124,16 @@ body {
 
 .no-transition {
     transition: none;
+}
+
+.show-borders * {
+    outline: 1px solid var(--text);
+}
+
+.border-view-button {
+    border-radius: 1rem;
+    position: absolute;
+    bottom: 4rem;
+    padding: 1em;
+    font-size: 1.2em !important;
 }
