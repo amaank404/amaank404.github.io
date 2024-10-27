@@ -14,6 +14,7 @@ markdown_extras = [
     "tables",
     "target-blank-links",
     "task_list",
+    "smart-pants",
 ]
 
 # load templates

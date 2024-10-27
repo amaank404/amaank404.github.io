@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Beginning</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="stylesheet" href="/static/blog.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="/static/cookies.js"></script>
+    <script defer src="/static/utils.js"></script>
+    <script defer src="/static/blog.js"></script>
+</head>
+<body>
+    <div class="navbar blur">
+        <a class="navbar-button" href="https://bento.me/amaank404">
+            <div style="--icon: url(images/bento.svg)" class="icon"> </div>
+            Bento
+        </a>
+        <a class="navbar-button" href="https://github.com/amaank404">
+            <div style="--icon: url(images/github.svg)" class="icon"> </div>
+            Github
+        </a>
+        <a class="navbar-button" href="/"> 
+            <div style="--icon: url(images/click.svg)" class="icon"> </div>
+            Home
+        </a>
+    </div>
+
+    <div class="title-container">
+        <div class="navbar-postpad"></div>
+        <div class="title">
+            <span class="title-1">The</span>
+            <span class="title-2">Beginning</span>
+        </div>
+        
+            <div class="subtext"> 2024-10-27 </div>
+        
+    </div>
+
+    
+    
+    <div class="image-container">
+        <img src="/blog_images/nature.jpg" class="title-image"/>
+    </div>
+    
+
+    <div class="content-centric blog-content">
+        <p>Just about yesterday, I finished writing an automatic
+blog generator for this website of mine. Started as a
+simple 'About Me', slowly building upon its structure
+to now integrate a full fledged blog post. Initially,
+I used <em>jinja2 templates</em> to generate blog post html
+based on HTML generated from the MarkDown sources.
+Then I slowly separated the main page's CSS files
+into small modular components that I could include
+into different sections of my website, this saved
+me the effort of rewriting the <code>theme switcher</code> and
+<code>scroll to top</code> buttons. All this blog post is powered
+by a very simple build script accompanied by github
+workflows for automatic generation of the website on push</p>
+
+<div class="codehilite">
+<pre><span></span><code><span class="kn">import</span> <span class="nn">jinja2</span>
+<span class="kn">import</span> <span class="nn">markdown2</span>
+<span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
+<span class="kn">import</span> <span class="nn">shutil</span>
+
+<span class="c1"># markdown extras</span>
+<span class="n">markdown_extras</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s2">&quot;fenced-code-blocks&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;footnotes&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;header-ids&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;nofollow&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;spoiler&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;strike&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;tables&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;target-blank-links&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;task_list&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;smart-pants&quot;</span><span class="p">,</span>
+<span class="p">]</span>
+
+<span class="c1"># load templates</span>
+<span class="n">template</span> <span class="o">=</span> <span class="n">jinja2</span><span class="o">.</span><span class="n">Template</span><span class="p">(</span><span class="n">Path</span><span class="p">(</span><span class="s2">&quot;templates/blog.html&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">read_text</span><span class="p">())</span>
+<span class="n">indexitem</span> <span class="o">=</span> <span class="n">jinja2</span><span class="o">.</span><span class="n">Template</span><span class="p">(</span><span class="n">Path</span><span class="p">(</span><span class="s2">&quot;templates/index_item.html&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">read_text</span><span class="p">())</span>
+
+<span class="n">blogs</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="c1"># Remove blog directory if it exists</span>
+<span class="n">blogdir</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s2">&quot;blog&quot;</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">blogdir</span><span class="o">.</span><span class="n">exists</span><span class="p">():</span>
+    <span class="n">shutil</span><span class="o">.</span><span class="n">rmtree</span><span class="p">(</span><span class="n">blogdir</span><span class="p">)</span>
+<span class="n">Path</span><span class="p">(</span><span class="s2">&quot;blog&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="c1"># For blog sources as md formatted</span>
+<span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">Path</span><span class="p">(</span><span class="s2">&quot;blog_src&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">iterdir</span><span class="p">():</span>
+    <span class="k">if</span> <span class="n">x</span><span class="o">.</span><span class="n">suffix</span> <span class="o">==</span> <span class="s2">&quot;.md&quot;</span><span class="p">:</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">read_text</span><span class="p">()</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span> <span class="o">*</span> <span class="mi">3</span>
+
+        <span class="n">title</span><span class="p">,</span> <span class="n">image</span><span class="p">,</span> <span class="n">subtext</span><span class="p">,</span> <span class="n">content</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+        <span class="n">blogs</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">x</span><span class="o">.</span><span class="n">with_suffix</span><span class="p">(</span><span class="s2">&quot;.html&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">title</span><span class="p">,</span> <span class="n">image</span><span class="p">,</span> <span class="n">subtext</span><span class="p">])</span>
+
+        <span class="n">image</span> <span class="o">=</span> <span class="n">image</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+
+        <span class="n">html</span> <span class="o">=</span> <span class="n">template</span><span class="o">.</span><span class="n">render</span><span class="p">(</span>
+            <span class="n">content</span><span class="o">=</span><span class="n">markdown2</span><span class="o">.</span><span class="n">markdown</span><span class="p">(</span><span class="n">content</span><span class="p">,</span> <span class="n">extras</span><span class="o">=</span><span class="n">markdown_extras</span><span class="p">),</span>
+            <span class="n">title</span><span class="o">=</span><span class="n">title</span><span class="p">,</span>
+            <span class="n">image</span><span class="o">=</span><span class="n">image</span><span class="p">,</span>
+            <span class="n">subtext</span><span class="o">=</span><span class="n">subtext</span><span class="p">,</span>
+        <span class="p">)</span>
+        <span class="n">outpath</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s2">&quot;blog&quot;</span><span class="p">)</span> <span class="o">/</span> <span class="n">x</span><span class="o">.</span><span class="n">with_suffix</span><span class="p">(</span><span class="s2">&quot;.html&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">name</span>
+
+        <span class="n">outpath</span><span class="o">.</span><span class="n">write_text</span><span class="p">(</span><span class="n">html</span><span class="p">)</span>
+
+
+<span class="c1"># Create a blog index</span>
+<span class="n">indexhtml</span> <span class="o">=</span> <span class="s1">&#39;&lt;div class=&quot;__index&quot;&gt;&#39;</span>
+
+<span class="k">for</span> <span class="n">url</span><span class="p">,</span> <span class="n">title</span><span class="p">,</span> <span class="n">image</span><span class="p">,</span> <span class="n">subtext</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">blogs</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="n">reverse</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+    <span class="n">item</span> <span class="o">=</span> <span class="n">indexitem</span><span class="o">.</span><span class="n">render</span><span class="p">(</span>
+        <span class="n">title</span><span class="o">=</span><span class="n">title</span><span class="p">,</span> <span class="n">image</span><span class="o">=</span><span class="n">image</span><span class="p">,</span> <span class="n">subtext</span><span class="o">=</span><span class="n">subtext</span><span class="p">,</span> <span class="n">url</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;/blog/</span><span class="si">{</span><span class="n">url</span><span class="si">}</span><span class="s2">&quot;</span>
+    <span class="p">)</span>
+    <span class="n">indexhtml</span> <span class="o">+=</span> <span class="n">item</span>
+
+<span class="n">indexhtml</span> <span class="o">+=</span> <span class="s2">&quot;&lt;/div&gt;&quot;</span>
+
+<span class="n">html</span> <span class="o">=</span> <span class="n">template</span><span class="o">.</span><span class="n">render</span><span class="p">(</span><span class="n">content</span><span class="o">=</span><span class="n">indexhtml</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Index &quot;</span><span class="p">,</span> <span class="n">image</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">subtext</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+<span class="p">(</span><span class="n">Path</span><span class="p">(</span><span class="s2">&quot;blog&quot;</span><span class="p">)</span> <span class="o">/</span> <span class="s2">&quot;index.html&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">write_text</span><span class="p">(</span><span class="n">html</span><span class="p">)</span>
+</code></pre>
+</div>
+
+<p>Now, isn't that simple &gt;:p</p>
+
+<h1 id="future-plans">Future Plans</h1>
+
+<p>I have nothing in mind for the future of this post,
+I might as well say that this is just for convenience
+and that <strong>I might almost never write anything of substance
+here often.</strong> But for now, I feel contempt with the
+progress I've made in my Web Dev journey. What started
+as a simple HTML page that I created to serve video files
+on my home network, slowly evolved into a CSS-heavy
+media server. Though, I no longer possess the code
+for my first ever website since its permanent loss
+in my home server's loss of data.</p>
+
+<p>This website has been a great learning experience as a
+Web Developer. Being a Backend dev, I never really completely
+understood what went into making websites so beautiful
+and user friendly, Only through building and working
+on this have I finally realized the countless hours
+one spends on fixing their CSS, centering a <code>div</code>
+and more...</p>
+
+<p>This website is also my first time making responsive websites,
+making it function on all sorts of screen sizes while also
+looking fabulous.</p>
+
+    </div>
+
+    <div class="pre-footer-pad"></div>
+    <div class="material-symbols-outlined scroll-view-button blur button-right scroll-up-button"> keyboard_arrow_up </div>
+    <div class="material-symbols-outlined scroll-view-button blur button-left theme-button"> dark_mode </div>
+    <div class="footercpright"> Copyright © 2024 Amaan Ahmad Khan</div>
+</body>
+</html>
