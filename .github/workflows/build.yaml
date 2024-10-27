@@ -3,7 +3,7 @@ on: push
 permissions:
   contents: write
 jobs:
-  report:
+  build_blog:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -19,6 +19,9 @@ jobs:
       - name: Creating HTML from Markdown
         run: |
           poetry run python build.py
+      - name: Build Image Assets
+        run: |
+          poetry run python build_assets.py
       - name: Publish HTML blog
         run: |
           git config --global user.name 'Amaan Khan'
