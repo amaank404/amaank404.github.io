@@ -77,13 +77,15 @@ body {
     bottom: 2em;
 }
 
-.scroll-view-button:hover {
-    background-color: var(--text);
-    color: var(--background-em);
+@media (hover: hover) {
+    .scroll-view-button:hover {
+        background-color: var(--text);
+        color: var(--background-em);
+    }
 }
 
 .light-theme .scroll-view-button {
-    box-shadow: 0 0 10px 10px rgba(0, 0, 0, 5%);
+    box-shadow: 0 0 30px 3px rgba(0, 0, 0, 4%);
 }
 
 .hidden {
@@ -92,7 +94,8 @@ body {
 }
 
 .content-centric {
-    width: calc(100% - 4em);
+    box-sizing: border-box;
+    width: 100%;
     padding: 0em 2em;
     max-width: 900px;
 }
