@@ -48,6 +48,7 @@ body {
 }
 
 .blur {
+    -webkit-backdrop-filter: blur(7px);
     background-color: var(--blur-color);
     backdrop-filter: blur(7px);
 }
